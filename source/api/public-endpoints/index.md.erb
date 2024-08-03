@@ -1,0 +1,198 @@
+# Public Endpoints
+
+Public endpoints in Pi42 are designed to facilitate easy access to various functionalities of the Pi42 platform, particularly for integration with external systems and applications. 
+Below is an overview of the public endpoints available in Pi42, their typical uses, and example API calls.
+
+## Exchange
+
+Retrieve exchange information for a specific market, such as INR (Indian Rupee)
+
+
+### HTTP Request  
+ `GET /v1/exchange/exchangeInfo` <br/>
+ Query param (optional):  `market`
+
+
+Example: `GET /v1/exchange/exchangeInfo?market=INR`
+
+### Response 
+
+Here is the breakdown of the response fields and their meanings:
+
+Parameter | Description
+--------- | -----------
+market | A list of markets included in the response. In this case, it is ["INR"].
+contracts | An array of contract objects that contain detailed information about specific trading contracts available in the INR market.
+name | The name of the trading pair (e.g., "BTCINR" for Bitcoin to INR)
+contractName | The full name of the contract (e.g., "Bitcoin").
+filters | A list of filters that apply to the contract, detailing quantity and order constraints
+maxQty| The maximum quantity allowed
+minQty| The minimum quantity allowed
+filterType| The type of filter (e.g., "MARKET_QTY_SIZE", "LIMIT_QTY_SIZE", "MAX_NUM_ORDERS", "MIN_NOTIONAL").
+limit|The maximum number of orders allowed.
+notional| The minimum notional value.
+makerFee| The fee percentage for makers.
+takerFee| The fee percentage for takers.
+baseAsset|  The base asset for the contract (e.g., "BTC").
+orderTypes| The types of orders supported (e.g., "LIMIT", "MARKET").
+quoteAsset| The quote asset for the contract (e.g., "INR").
+maxLeverage|  The maximum leverage allowed (e.g., "20").
+contractType| The type of contract (e.g., "PERPETUAL").
+marginBuffer| The margin buffer value.
+depthGrouping| The grouping for order book depth (e.g., ["0.1"]).
+liquidationFee| The fee percentage for liquidation (e.g., "0.020000").
+pricePrecision| The number of decimal places for prices.
+isDefaultContract| A boolean indicating if this is the default contract (e.g., true).
+quantityPrecision| The number of decimal places for quantities.
+limitPriceVarAllowed| The allowed price variation for limit orders (e.g., "0.2").
+marginBufferPercentage| The percentage for margin buffer (e.g., "1").
+maintenanceMarginPercentage| The percentage for maintenance margin (e.g., "1").
+iconUrl| The URL for the contract's icon (e.g., "string").
+reduceMarginAllowedRatioPercent| The allowed ratio percentage for reducing margin (e.g., 0.2).
+market|The market identifier|(e.g., "INR").
+marginAssetsSupported| A list of supported margin assets (e.g., ["INR"]).
+fundingFeeInterval| The interval for funding fees (e.g., 8).
+tags| A list of tags associated with the market or contracts (e.g., ["MEME", "DECENTRALIZED"]).
+assetPrecisions| An object that specifies the precision for assets.
+INR|The precision for INR (e.g., 2 decimal places).
+conversionRates| An object that specifies conversion rates for margin and settlement.
+INR_MARGIN_INR| The conversion rate for INR margin to INR (e.g., 1).
+INR_SETTLEMENT_INR| The conversion rate for INR settlement to INR (e.g., 1)
+
+
+
+> The above command returns JSON structured such as:
+
+```json
+{
+  "markets": [
+    "INR"
+  ],
+  "contracts": [
+    {
+      "name": "BTCINR",
+      "contractName": "Bitcoin",
+      "filters": [
+        {
+          "maxQty": "120",
+          "minQty": "0.001",
+          "filterType": "MARKET_QTY_SIZE"
+        },
+        {
+          "maxQty": "1000",
+          "minQty": "0.001",
+          "filterType": "LIMIT_QTY_SIZE"
+        },
+        {
+          "limit": "200",
+          "filterType": "MAX_NUM_ORDERS"
+        },
+        {
+          "notional": "8780",
+          "filterType": "MIN_NOTIONAL"
+        }
+      ],
+      "makerFee": 0.005,
+      "takerFee": 0.1,
+      "baseAsset": "BTC",
+      "orderTypes": [
+        "LIMIT",
+        "MARKET"
+      ],
+      "quoteAsset": "INR",
+      "maxLeverage": "20",
+      "contractType": "PERPETUAL",
+      "marginBuffer": "0.01",
+      "depthGrouping": [
+        "0.1"
+      ],
+      "liquidationFee": "0.020000",
+      "pricePrecision": "0",
+      "isDefaultContract": true,
+      "quantityPrecision": "3",
+      "limitPriceVarAllowed": "0.2",
+      "marginBufferPercentage": "1",
+      "maintenanceMarginPercentage": "1",
+      "iconUrl": "string",
+      "reduceMarginAllowedRatioPercent": 0.2,
+      "market": "INR",
+      "marginAssetsSupported": [
+        "INR"
+      ],
+      "fundingFeeInterval": 8
+    }
+  ],
+  "tags": [
+    "MEME",
+    "DECENTRALIZED"
+  ],
+  "assetPrecisions": {
+    "INR": 2
+  },
+  "conversionRates": {
+    "INR_MARGIN_INR": 1,
+    "INR_SETTLEMENT_INR": 1
+  }
+}
+```
+
+
+## Market
+
+Fetch the candlestick data for a contract pair.
+
+Available interval values: `1m`, `3m`, `5m`, `15m`, `30m`, `1h`, `2h`, `4h`, `6h`, `8h`, `12h`, `1d`, `3d`, `1w`, `1M`
+
+**m: Minute, h: Hour, d: Day, w: Week, M: Month**
+
+### Klines 
+
+ `POST /v1/market/klines`
+
+```json
+{
+    "pair": "BTCINR", // Contract Pair
+    "interval": "1m", // '1' OR '5' OR '60' OR '1D' for 1min, 5min, 1hour, 1day respectively
+    "startTime": 1696425435000, // EPOCH timestamp in milliseconds
+    "endTime": 1696425435999, // EPOCH timestamp in milliseconds
+    "limit": 1000, // Max limit is 1500 and default limit is 500 if no limit value will be passed
+}
+```
+### Response
+
+The above command returns JSON structured like this:
+ 
+```json
+[
+ {
+    to be filled
+ }
+
+]
+```
+
+<aside class="notice">
+ The data values will be in descending order of endTime  
+</aside>
+
+## Depth Update
+
+Fetch the depth update data for a contract pair.
+
+`GET /v1/market/depth/:contractPair`
+
+
+## Agg Trade Update
+
+Fetch the trade update data for a contract pair.
+
+`GET /v1/market/aggTrade/:contractPair`
+
+## Ticker Update (24Hr)
+
+Fetch the 24 hr ticker update data for a contract pair.
+
+`GET /v1/market/ticker24Hr/:contractPair`
+
+Path Params: 
+

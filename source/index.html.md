@@ -11,7 +11,7 @@ toc_footers:
   - <a href='#'>Sign Up for a Developer Key</a>
   - <a href='https://github.com/slatedocs/slate'>Documentation Powered by Slate</a>
 
-includes:
+# includes:
   - errors
 
 search: true
@@ -22,6 +22,7 @@ meta:
   - name: description
     content: Documentation for the Kittn API
 ---
+
 
 # Introduction
 
