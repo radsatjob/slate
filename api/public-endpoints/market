@@ -17,8 +17,7 @@
 <blockquote>
 <p>The above command returns JSON structured like this:</p>
 </blockquote>
-<div class="highlight"><pre class="highlight json tab-json"><code><span class="w">
-</span></code></pre></div>
+
 <aside class="notice">
  The data values will be in descending order of endTime  
 </aside>
