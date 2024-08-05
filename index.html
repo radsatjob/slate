@@ -369,6 +369,9 @@
                   </li>
               </ul>
           </li>
+          <li>
+            <a href="#authentication" class="toc-h1 toc-link" data-title="Authentication">Authentication</a>
+          </li>
       </ul>
     </div>
     <div class="page-wrapper">
@@ -383,19 +386,22 @@
 <li>Added optional query param <code>market</code></li>
 <li>Added <code>markets</code>, <code>tags</code>, <code>assetPrecisions</code>, <code>conversionRates</code> in the response <br/></li>
 <li>For each contract, from the response: <br/>
-i. Removed: <code>marginAsset</code>, <code>maintMarginPercent</code> <br/>
-ii. Added: <code>market</code>, <code>marginAssetsSupported</code>, <code>fundingFeeInterval</code> <br/></li>
+
+<ul>
+<li> Removed: <code>marginAsset</code>, <code>maintMarginPercent</code> <br/></li>
+<li> Added: <code>market</code>, <code>marginAssetsSupported</code>, <code>fundingFeeInterval</code> <br/></li>
+</ul></li>
 </ul></li>
 <li>Open Orders, Order History, Linked Orders <br/>
 
 <ul>
-<li> Added <code>baseAsset</code>, <code>quoteAsset</code> in response <br/></li>
+<li>Added <code>baseAsset</code>, <code>quoteAsset</code> in response <br/></li>
 <li>Added <code>lockedMarginInMarginAsset</code>, <code>lockedMargin</code>, <code>stopPrice</code>, <code>marginAsset</code>, <code>leveragedQty</code> in Order History response <br/></li>
 </ul></li>
 <li>Add Margin/ Reduce Margin <br/>
 
 <ul>
-<li>Added <code>asset</code> in response <br/></li>
+<li> Added <code>asset</code> in response <br/></li>
 </ul></li>
 <li>Get order using client order ID, Get order using ref ID <br/>
 
@@ -432,9 +438,12 @@ response</li>
 
 <ul>
 <li>Market Info ( marketInfo)<br/></li>
-<li>Mark Price Stream for All market ( markPriceArr)<br/></li>
-<li>All Market Tickers Streams( tickerArr)<br/>
-b. Added new fields in the Response of following events <br/></li>
+<li> Mark Price Stream for All market ( markPriceArr)<br/></li>
+<li>All Market Tickers Streams( tickerArr)<br/></li>
+</ul></li>
+<li>Added new fields in the Response of following events <br/>
+
+<ul>
 <li>Order Events : <code>marginAsset</code>, <code>market</code> , <code>baseAsset</code>, <code>quoteAsset</code><br/></li>
 <li>Position Events:<code>market</code>, <code>marginAsset</code>, <code>marginConversionRate</code>, <code>marginSettlementRate</code>, <code>marginInMarginAsset</code>,
 <code>realizedProfitInMarginAsset</code> <br/></li>
@@ -449,84 +458,99 @@ b. Added new fields in the Response of following events <br/></li>
 <ul>
 <li>Removed <code>timestamp</code> query param.</li>
 <li>Added optional query params namely:
-i. <code>startTimestamp</code> (lower bound),
-ii. <code>endTimestamp</code> (upper bound),
-iii. <code>sortOrder</code>(asc or desc),</li>
-<li>Response: <code>nextTimestamp</code> which is used in the next paginated API call.</li>
-<li>Examples added in the API descriptions section in the doc.</li>
-</ul></li>
-<li>New Endpoint
 
 <ul>
-<li> Margin History ( GET /v1/order/fetch-margin-history)</li>
+<li><code>startTimestamp</code> (lower bound) <br/></li>
+<li> <code>endTimestamp</code> (upper bound) <br/></li>
+<li> <code>sortOrder</code>(asc or desc) <br/></li>
+</ul></li>
+<li> Response: <code>nextTimestamp</code> which is used in the next paginated API call.</li>
+<li>Examples added in the API descriptions section in the doc.</li>
+</ul></li>
+<li>New Endpoint 
+
+<ul>
+<li>Margin History ( GET /v1/order/fetch-margin-history)</li>
 </ul></li>
 </ol>
 <h2 id='19-06-2024'>19-06-2024</h2>
 <ol>
 <li>Updated Pagination of following APIs: <code>orderHistory</code>, <code>tradeHistory</code>, <code>transactionHistory</code>, <code>openOrders</code>
-a. Pagination changed from page basis to timestamp basis.
-b. Introduced timestamp basis pagination in positions API.
-c. Response gives a field <code>nextTimestamp</code>, which is used for next API call.</li>
+
+<ul>
+<li>Pagination changed from page basis to timestamp basis.</li>
+<li>Introduced timestamp basis pagination in positions API.</li>
+<li>Response gives a field <code>nextTimestamp</code>, which is used for next API call.</li>
+</ul></li>
 </ol>
 <h2 id='06-06-2024'>06-06-2024</h2>
 <ol>
 <li>New Endpoints added
 
 <ul>
-<li> Get Depth Update( GET /v1/market/depth/:contractPair)<br/></li>
-<li> Get Aggregate trade update ( GET /v1/market/aggTrade/:contractPair)</li>
-<li> Get order details using ref ID ( GET /v1/order/ref-id)</li>
-<li> Get user id and account ID using ref ID ( GET /v1/integration/user)</li>
-<li> Get fiat order details using reference ID ( GET /v1/integration/fiat-order-details)</li>
-<li> Get 24hr ticker update ( GET /v1/market/ticker24Hr/:contractPair)</li>
-<li> Get trade history based on trade ID ( GET /v1/user-data/trade-history/{id})</li>
-<li> Get transaction history based on transaction ID ( GET /v1/user-data/transaction-history/{id})</li>
+<li>Get Depth Update( GET <code>/v1/market/depth/:contractPair</code>)<br/></li>
+<li>Get Aggregate trade update ( GET <code>/v1/market/aggTrade/:contractPair</code>)</li>
+<li>Get order details using ref ID ( GET <code>/v1/order/ref-id</code>)</li>
+<li>Get user id and account ID using ref ID ( GET <code>/v1/integration/user</code>)</li>
+<li>Get fiat order details using reference ID ( GET <code>/v1/integration/fiat-order-details</code>)</li>
+<li>Get 24hr ticker update ( GET <code>/v1/market/ticker24Hr/:contractPair</code>)</li>
+<li>Get trade history based on trade ID ( GET <code>/v1/user-data/trade-history/{id}</code>)</li>
+<li>Get transaction history based on transaction ID ( GET <code>/v1/user-data/transaction-history/{id}</code>)</li>
 </ul></li>
 <li>Updated Endpoints
 
 <ul>
-<li> Two new optional query params( tradeId and positionId) added in ( GET /v1/user-data/transaction-history). <br/></li>
-<li>Updates in body of ( POST /v1/integration/event-replay)</li>
+<li>Two new optional query params( tradeId and positionId) added in ( GET <code>/v1/user-data/transaction-history</code>).</li>
+<li>Updates in body of ( POST <code>/v1/integration/event-replay</code>)</li>
 </ul></li>
-<li>Added optional field refId in the responses of place order, get order details using client order id, order history, open orders, linked
-orders endpoints.</li>
+<li>Added optional field refId in the responses of place order, get order details using <code>client order id</code>, <code>order history</code>, <code>open orders</code>, <code>linked
+orders</code> endpoints.</li>
 <li>Secure Web Socket Updates:
-a. In each event, eventTime will be in nanoseconds and type will be string.</li>
+a. In each event, <code>eventTime</code> will be in nanoseconds and type will be string.</li>
 </ol>
 <h2 id='28-05-2024'>28-05-2024</h2>
 <ol>
 <li>New Endpoints <br/>
-a. Get Order ( GET /v1/order?clientOrderId=abc)<br/>
-b. Get Position ( GET /v1/positions?positionId=abc)<br/>
-c. Event Replay ( POST /v1/integration/event-replay): This is just endpoint, we&#39;re still deploying the changes.<br/>
+
+<ul>
+<li> Get Order ( GET <code>/v1/order?clientOrderId=abc</code>)<br/></li>
+<li>Get Position ( GET <code>/v1/positions?positionId=abc</code>)<br/></li>
+<li>Event Replay ( POST <code>/v1/integration/event-replay</code>): This is just endpoint, we&#39;re still deploying the changes.<br/>
 <br/></li>
+</ul></li>
 <li>Secure Web Socket Updates:<br/>
 a. Added new event for Funding Fee named <strong>fundingFee</strong></li>
 </ol>
 <h2 id='20-05-2024'>20-05-2024</h2>
 <ol>
-<li>Added <code>lockedMargin</code> field in the place-order api response</li>
+<li>Added <code>lockedMargin</code> field in the <code>place-order</code> API response</li>
 </ol>
 <h2 id='10-05-2024'>10-05-2024</h2>
 <ol>
 <li>New Endpoint:
-INR Deposit and Withdraw History ( GET /v1/integration/deposit-withdraw-history)</li>
+INR Deposit and Withdraw History ( GET <code>/v1/integration/deposit-withdraw-history</code>)</li>
 <li>New enums: <code>PaymentType</code>, <code>PaymentStatus</code></li>
 <li>Added optional query params for pagination for the following endpoints
-a. Order History
-b. Open Orders
-c. Transaction History
-d. Trade History</li>
+
+<ul>
+<li>Order History</li>
+<li>Open Orders</li>
+<li>Transaction History</li>
+<li>Trade History</li>
+</ul></li>
 <li>Updated public key sharing under Authenticated endpoints.</li>
 <li>Secure Web Socket Updates:
-a. Added eventTime field in all the events.
-b. Updated response of order events.
+
+<ul>
+<li>Added eventTime field in all the events.</li>
+<li>Updated response of order events.
 In case of orderPartiallyFilled event, use filledAmount instead of cumQty for total filled
 quantity.
-c. New Events:
-i. Margin Call ( marginCallAlert)
-ii. Liquidation ( liquidationAlert)
-iii. Trade stream (newTrade)</li>
+c. New Events:</li>
+<li>Margin Call (marginCallAlert)</li>
+<li>Liquidation ( liquidationAlert)</li>
+<li>Trade stream (newTrade)</li>
+</ul></li>
 </ol>
 
 
@@ -844,14 +868,42 @@ Below is an overview of the public endpoints available in Pi42, their typical us
     </span><span class="nl">"INR_SETTLEMENT_INR"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="w">
   </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
-</span></code></pre></div><h2 id='market'>Market</h2>
+</span></code></pre></div><h2 id='market'>Market</h2><h3 id='klines'>Klines</h3>
 <p>Fetch the candlestick data for a contract pair.</p>
+
+<p><code>POST /v1/market/klines</code></p>
 
 <p>Available interval values: <code>1m</code>, <code>3m</code>, <code>5m</code>, <code>15m</code>, <code>30m</code>, <code>1h</code>, <code>2h</code>, <code>4h</code>, <code>6h</code>, <code>8h</code>, <code>12h</code>, <code>1d</code>, <code>3d</code>, <code>1w</code>, <code>1M</code></p>
 
 <p><strong>m: Minute, h: Hour, d: Day, w: Week, M: Month</strong></p>
-<h3 id='klines'>Klines</h3>
-<p><code>POST /v1/market/klines</code></p>
+<h3 id='request'>Request</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code>pair</code></td>
+<td>This specifies the trading pair, in this case, Bitcoin to Indian Rupee (INR).</td>
+</tr>
+<tr>
+<td><code>interval</code></td>
+<td>This sets the time interval for the data; 1m means 1 minute.</td>
+</tr>
+<tr>
+<td><code>startTime</code></td>
+<td>1696425435000: The start time for the data in EPOCH timestamp (milliseconds).</td>
+</tr>
+<tr>
+<td><code>endTime</code></td>
+<td>1696425435999: The end time for the data in EPOCH timestamp (milliseconds).</td>
+</tr>
+<tr>
+<td><code>limit</code></td>
+<td>This sets the maximum number of data points to retrieve.<br/> The default limit is 500, and the maximum is 1500.</td>
+</tr>
+</tbody></table>
 <div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
     </span><span class="nl">"pair"</span><span class="p">:</span><span class="w"> </span><span class="s2">"BTCINR"</span><span class="p">,</span><span class="w"> </span><span class="err">//</span><span class="w"> </span><span class="err">Contract</span><span class="w"> </span><span class="err">Pair</span><span class="w">
     </span><span class="nl">"interval"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1m"</span><span class="p">,</span><span class="w"> </span><span class="err">//</span><span class="w"> </span><span class="err">'</span><span class="mi">1</span><span class="err">'</span><span class="w"> </span><span class="err">OR</span><span class="w"> </span><span class="err">'</span><span class="mi">5</span><span class="err">'</span><span class="w"> </span><span class="err">OR</span><span class="w"> </span><span class="err">'</span><span class="mi">60</span><span class="err">'</span><span class="w"> </span><span class="err">OR</span><span class="w"> </span><span class="err">'</span><span class="mi">1</span><span class="err">D'</span><span class="w"> </span><span class="err">for</span><span class="w"> </span><span class="mi">1</span><span class="err">min</span><span class="p">,</span><span class="w"> </span><span class="mi">5</span><span class="err">min</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="err">hour</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="err">day</span><span class="w"> </span><span class="err">respectively</span><span class="w">
@@ -860,7 +912,9 @@ Below is an overview of the public endpoints available in Pi42, their typical us
     </span><span class="nl">"limit"</span><span class="p">:</span><span class="w"> </span><span class="mi">1000</span><span class="p">,</span><span class="w"> </span><span class="err">//</span><span class="w"> </span><span class="err">Max</span><span class="w"> </span><span class="err">limit</span><span class="w"> </span><span class="err">is</span><span class="w"> </span><span class="mi">1500</span><span class="w"> </span><span class="err">and</span><span class="w"> </span><span class="err">default</span><span class="w"> </span><span class="err">limit</span><span class="w"> </span><span class="err">is</span><span class="w"> </span><span class="mi">500</span><span class="w"> </span><span class="err">if</span><span class="w"> </span><span class="err">no</span><span class="w"> </span><span class="err">limit</span><span class="w"> </span><span class="err">value</span><span class="w"> </span><span class="err">will</span><span class="w"> </span><span class="err">be</span><span class="w"> </span><span class="err">passed</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div><h3 id='response-2'>Response</h3>
+<blockquote>
 <p>The above command returns JSON structured like this:</p>
+</blockquote>
 <div class="highlight"><pre class="highlight json tab-json"><code><span class="w">  </span><span class="p">{</span><span class="w">
     </span><span class="nl">"startTime"</span><span class="p">:</span><span class="w"> </span><span class="mi">1706527190</span><span class="p">,</span><span class="w">
     </span><span class="nl">"open"</span><span class="p">:</span><span class="w"> </span><span class="mi">3568200</span><span class="p">,</span><span class="w">
@@ -884,7 +938,7 @@ Below is an overview of the public endpoints available in Pi42, their typical us
 
 <h3 id='path-params'>Path Params:</h3>
 
-<p><code>contractPair</code>: string //contract Pair for which data is required (ex - btcinr, ethinr)</p>
+<p><code>contractPair</code>: string // <strong>contract Pair for which data is required (ex - &quot;btcinr&quot;, &quot;ethinr&quot;)</strong></p>
 
 <h3 id='response-3'>Response</h3>
 
@@ -1030,6 +1084,68 @@ Below is an overview of the public endpoints available in Pi42, their typical us
   </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div>
+
+<h1 id='authentication'>Authentication</h1>
+
+<p>As a </p>
+
+<ol>
+<li>The partner would create an account on the platform and share the email with Pi42. This will be set as the master account for the partner. All API requests from partners will be authenticated using the tokens of this master account only.</li>
+<li><p>The partner should share the RSA generated public key with Pi42. The corresponding private key should be used for generating header signature.
+These commands can be used for generating such private public key pair.</p>
+
+<p><code>openssl genrsa 2048 -out private.pem</code></p>
+
+<p><code>openssl rsa -in private.pem -pubout -outform PEM -out public.pem</code></p></li>
+<li><p>All requests should contain cookie which will be shared by Pi42.</p></li>
+<li><p>All requests should contain these common headers:</p></li>
+</ol>
+
+<div class="highlight"><pre class="highlight plaintext"><code>{
+
+    "timestamp": &lt;unix_timestamp_in_milliseconds&gt;,
+    "partner-name": &lt;name_of_the_partner_entity&gt;,
+    "header-sig": &lt;SHA256 header-signature&gt;
+}
+</code></pre></div>
+
+<p>Sample code for creating SHA256 hash for header signature</p>
+
+<aside class="notice">
+The data object should contain the headers passed along with the request as defined for each endpoint.
+</aside>
+
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="w">
+</span><span class="err">import</span><span class="w"> </span><span class="err">*</span><span class="w"> </span><span class="err">as</span><span class="w"> </span><span class="err">crypto</span><span class="w"> </span><span class="err">from</span><span class="w"> </span><span class="err">'crypto';</span><span class="w">
+
+</span><span class="err">const</span><span class="w"> </span><span class="err">fnc</span><span class="w"> </span><span class="err">=</span><span class="w"> </span><span class="err">async</span><span class="w"> </span><span class="err">()</span><span class="w"> </span><span class="err">=&gt;</span><span class="w"> </span><span class="p">{</span><span class="w">
+  </span><span class="err">const</span><span class="w"> </span><span class="err">data</span><span class="w"> </span><span class="err">=</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="err">'timestamp':</span><span class="w"> </span><span class="err">'</span><span class="mi">1706178137291</span><span class="err">'</span><span class="p">,</span><span class="w">
+    </span><span class="err">'partner-name':</span><span class="w"> </span><span class="err">'partner</span><span class="w"> </span><span class="err">name'</span><span class="p">,</span><span class="w">
+    </span><span class="err">'user-id':</span><span class="w"> </span><span class="err">'</span><span class="mi">11</span><span class="err">'</span><span class="p">,</span><span class="w">
+    </span><span class="err">'account-id':</span><span class="w"> </span><span class="err">'</span><span class="mi">11</span><span class="err">'</span><span class="p">,</span><span class="w">
+  </span><span class="p">}</span><span class="err">;</span><span class="w">
+
+
+  </span><span class="err">const</span><span class="w"> </span><span class="err">key</span><span class="w"> </span><span class="err">=</span><span class="w"> </span><span class="err">crypto</span><span class="w">
+    </span><span class="err">.createSign('SHA</span><span class="mi">256</span><span class="err">')</span><span class="w">
+    </span><span class="err">.update(JSON.stringify(data))</span><span class="w">
+    </span><span class="err">.sign(privateKey</span><span class="p">,</span><span class="w"> </span><span class="err">'hex');</span><span class="w">
+
+  </span><span class="err">console.log(</span><span class="p">{</span><span class="w"> </span><span class="err">key</span><span class="w"> </span><span class="p">}</span><span class="err">);</span><span class="w">
+</span><span class="p">}</span><span class="err">;</span><span class="w">
+
+</span><span class="err">fnc();</span><span class="w">
+
+</span></code></pre></div>
+
+<p>All user-related endpoints should contain the following headers along with the common headers</p>
+
+<div class="highlight"><pre class="highlight plaintext"><code>{
+    "user-id": 'user-id as returned from create-user endpoint',
+    "account-id": 'account-id as returned from create-user endpoint'
+}
+</code></pre></div>
 
       </div>
       <div class="dark-box">
