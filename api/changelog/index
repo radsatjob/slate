@@ -1,4 +1,4 @@
-<h1 id='change-log'>Change Log</h1><h2 id='test-me'>Test me</h2><h2 id='17-07-2024'>17-07-2024</h2>
+<h1 id='change-logs'>Change Logs</h1><h2 id='test-me'>Test me</h2><h2 id='17-07-2024'>17-07-2024</h2>
 <ol>
 <li>Added Enum Value GST_ON_Funding FEE in TransactionType</li>
 <li>Exchange Info <br/>
