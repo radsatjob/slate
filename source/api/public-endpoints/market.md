@@ -23,12 +23,7 @@ Available interval values: `1m`, `3m`, `5m`, `15m`, `30m`, `1h`, `2h`, `4h`, `6h
 > The above command returns JSON structured like this:
  
 ```json
-[
- {
-    https://github.com/radsatjob/slatesssss
- }
 
-]
 ```
 
 <aside class="notice">
