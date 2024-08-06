@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
         <meta
             name="description"
-            content="Documentation for the Pi42 APIs"
+            content="Pi42 APIs Documentation"
         >
     <title>Pi42 API Reference Documentation</title>
 
@@ -350,6 +350,9 @@
               </ul>
           </li>
           <li>
+            <a href="#authentication" class="toc-h1 toc-link" data-title="Authentication">Authentication</a>
+          </li>
+          <li>
             <a href="#public-endpoints" class="toc-h1 toc-link" data-title="Public Endpoints">Public Endpoints</a>
               <ul class="toc-list-h2">
                   <li>
@@ -368,9 +371,6 @@
                     <a href="#ticker-update-24hr" class="toc-h2 toc-link" data-title="Ticker Update (24Hr)">Ticker Update (24Hr)</a>
                   </li>
               </ul>
-          </li>
-          <li>
-            <a href="#authentication" class="toc-h1 toc-link" data-title="Authentication">Authentication</a>
           </li>
       </ul>
     </div>
@@ -617,6 +617,68 @@ c. New Events:</li>
 - The content type of all the requests should be in JSON format. <br/>
 - `clientOrderID` should be treated as `order_id` and can be renamed later.<br/>
 </aside>
+
+<h1 id='authentication'>Authentication</h1>
+
+<p>As a </p>
+
+<ol>
+<li>The partner would create an account on the platform and share the email with Pi42. This will be set as the master account for the partner. All API requests from partners will be authenticated using the tokens of this master account only.</li>
+<li><p>The partner should share the RSA generated public key with Pi42. The corresponding private key should be used for generating header signature.
+These commands can be used for generating such private public key pair.</p>
+
+<p><code>openssl genrsa 2048 -out private.pem</code></p>
+
+<p><code>openssl rsa -in private.pem -pubout -outform PEM -out public.pem</code></p></li>
+<li><p>All requests should contain cookie which will be shared by Pi42.</p></li>
+<li><p>All requests should contain these common headers:</p></li>
+</ol>
+
+<div class="highlight"><pre class="highlight plaintext"><code>{
+
+    "timestamp": &lt;unix_timestamp_in_milliseconds&gt;,
+    "partner-name": &lt;name_of_the_partner_entity&gt;,
+    "header-sig": &lt;SHA256 header-signature&gt;
+}
+</code></pre></div>
+
+<p>Sample code for creating SHA256 hash for header signature</p>
+
+<aside class="notice">
+The data object should contain the headers passed along with the request as defined for each endpoint.
+</aside>
+
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="w">
+</span><span class="err">import</span><span class="w"> </span><span class="err">*</span><span class="w"> </span><span class="err">as</span><span class="w"> </span><span class="err">crypto</span><span class="w"> </span><span class="err">from</span><span class="w"> </span><span class="err">'crypto';</span><span class="w">
+
+</span><span class="err">const</span><span class="w"> </span><span class="err">fnc</span><span class="w"> </span><span class="err">=</span><span class="w"> </span><span class="err">async</span><span class="w"> </span><span class="err">()</span><span class="w"> </span><span class="err">=&gt;</span><span class="w"> </span><span class="p">{</span><span class="w">
+  </span><span class="err">const</span><span class="w"> </span><span class="err">data</span><span class="w"> </span><span class="err">=</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="err">'timestamp':</span><span class="w"> </span><span class="err">'</span><span class="mi">1706178137291</span><span class="err">'</span><span class="p">,</span><span class="w">
+    </span><span class="err">'partner-name':</span><span class="w"> </span><span class="err">'partner</span><span class="w"> </span><span class="err">name'</span><span class="p">,</span><span class="w">
+    </span><span class="err">'user-id':</span><span class="w"> </span><span class="err">'</span><span class="mi">11</span><span class="err">'</span><span class="p">,</span><span class="w">
+    </span><span class="err">'account-id':</span><span class="w"> </span><span class="err">'</span><span class="mi">11</span><span class="err">'</span><span class="p">,</span><span class="w">
+  </span><span class="p">}</span><span class="err">;</span><span class="w">
+
+
+  </span><span class="err">const</span><span class="w"> </span><span class="err">key</span><span class="w"> </span><span class="err">=</span><span class="w"> </span><span class="err">crypto</span><span class="w">
+    </span><span class="err">.createSign('SHA</span><span class="mi">256</span><span class="err">')</span><span class="w">
+    </span><span class="err">.update(JSON.stringify(data))</span><span class="w">
+    </span><span class="err">.sign(privateKey</span><span class="p">,</span><span class="w"> </span><span class="err">'hex');</span><span class="w">
+
+  </span><span class="err">console.log(</span><span class="p">{</span><span class="w"> </span><span class="err">key</span><span class="w"> </span><span class="p">}</span><span class="err">);</span><span class="w">
+</span><span class="p">}</span><span class="err">;</span><span class="w">
+
+</span><span class="err">fnc();</span><span class="w">
+
+</span></code></pre></div>
+
+<p>All user-related endpoints should contain the following headers along with the common headers</p>
+
+<div class="highlight"><pre class="highlight plaintext"><code>{
+    "user-id": 'user-id as returned from create-user endpoint',
+    "account-id": 'account-id as returned from create-user endpoint'
+}
+</code></pre></div>
 
 <h1 id='public-endpoints'>Public Endpoints</h1>
 
@@ -1084,68 +1146,6 @@ Below is an overview of the public endpoints available in Pi42, their typical us
   </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div>
-
-<h1 id='authentication'>Authentication</h1>
-
-<p>As a </p>
-
-<ol>
-<li>The partner would create an account on the platform and share the email with Pi42. This will be set as the master account for the partner. All API requests from partners will be authenticated using the tokens of this master account only.</li>
-<li><p>The partner should share the RSA generated public key with Pi42. The corresponding private key should be used for generating header signature.
-These commands can be used for generating such private public key pair.</p>
-
-<p><code>openssl genrsa 2048 -out private.pem</code></p>
-
-<p><code>openssl rsa -in private.pem -pubout -outform PEM -out public.pem</code></p></li>
-<li><p>All requests should contain cookie which will be shared by Pi42.</p></li>
-<li><p>All requests should contain these common headers:</p></li>
-</ol>
-
-<div class="highlight"><pre class="highlight plaintext"><code>{
-
-    "timestamp": &lt;unix_timestamp_in_milliseconds&gt;,
-    "partner-name": &lt;name_of_the_partner_entity&gt;,
-    "header-sig": &lt;SHA256 header-signature&gt;
-}
-</code></pre></div>
-
-<p>Sample code for creating SHA256 hash for header signature</p>
-
-<aside class="notice">
-The data object should contain the headers passed along with the request as defined for each endpoint.
-</aside>
-
-<div class="highlight"><pre class="highlight json tab-json"><code><span class="w">
-</span><span class="err">import</span><span class="w"> </span><span class="err">*</span><span class="w"> </span><span class="err">as</span><span class="w"> </span><span class="err">crypto</span><span class="w"> </span><span class="err">from</span><span class="w"> </span><span class="err">'crypto';</span><span class="w">
-
-</span><span class="err">const</span><span class="w"> </span><span class="err">fnc</span><span class="w"> </span><span class="err">=</span><span class="w"> </span><span class="err">async</span><span class="w"> </span><span class="err">()</span><span class="w"> </span><span class="err">=&gt;</span><span class="w"> </span><span class="p">{</span><span class="w">
-  </span><span class="err">const</span><span class="w"> </span><span class="err">data</span><span class="w"> </span><span class="err">=</span><span class="w"> </span><span class="p">{</span><span class="w">
-    </span><span class="err">'timestamp':</span><span class="w"> </span><span class="err">'</span><span class="mi">1706178137291</span><span class="err">'</span><span class="p">,</span><span class="w">
-    </span><span class="err">'partner-name':</span><span class="w"> </span><span class="err">'partner</span><span class="w"> </span><span class="err">name'</span><span class="p">,</span><span class="w">
-    </span><span class="err">'user-id':</span><span class="w"> </span><span class="err">'</span><span class="mi">11</span><span class="err">'</span><span class="p">,</span><span class="w">
-    </span><span class="err">'account-id':</span><span class="w"> </span><span class="err">'</span><span class="mi">11</span><span class="err">'</span><span class="p">,</span><span class="w">
-  </span><span class="p">}</span><span class="err">;</span><span class="w">
-
-
-  </span><span class="err">const</span><span class="w"> </span><span class="err">key</span><span class="w"> </span><span class="err">=</span><span class="w"> </span><span class="err">crypto</span><span class="w">
-    </span><span class="err">.createSign('SHA</span><span class="mi">256</span><span class="err">')</span><span class="w">
-    </span><span class="err">.update(JSON.stringify(data))</span><span class="w">
-    </span><span class="err">.sign(privateKey</span><span class="p">,</span><span class="w"> </span><span class="err">'hex');</span><span class="w">
-
-  </span><span class="err">console.log(</span><span class="p">{</span><span class="w"> </span><span class="err">key</span><span class="w"> </span><span class="p">}</span><span class="err">);</span><span class="w">
-</span><span class="p">}</span><span class="err">;</span><span class="w">
-
-</span><span class="err">fnc();</span><span class="w">
-
-</span></code></pre></div>
-
-<p>All user-related endpoints should contain the following headers along with the common headers</p>
-
-<div class="highlight"><pre class="highlight plaintext"><code>{
-    "user-id": 'user-id as returned from create-user endpoint',
-    "account-id": 'account-id as returned from create-user endpoint'
-}
-</code></pre></div>
 
       </div>
       <div class="dark-box">
