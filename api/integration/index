@@ -115,15 +115,14 @@
   "userId": number,
   "accountId": number
 }
-</code></pre></div><h2 id='user'>User</h2>
-<p>Tier Info <code>GET /v1/user/tier-info</code>
-User&#39;s tier info</p>
-<h3 id='response-8'>Response</h3><div class="highlight"><pre class="highlight plaintext"><code>{
-  "userCategory": UserCategory,
-  "vipTier": VipTier,
-  "makerFeePerc": 0.05, //Maker Fee Percentage (Tierwise)
-  "takerFeePerc": 0.1, //Taker Fee Percentage (Tierwise)
-  "referralCommissionPerc": 20, //Referral Program - Referrer Commission Percentage (Tierwise)
-  "feeDiscountPerc": 10 //Referral Program - Referee's Discount Percentage on trading Fee (Tierwise)
-}
+</code></pre></div><h2 id='user-tier-information'>User Tier Information</h2>
+<p><code>GET /v1/user/tier-info</code></p>
+<h3 id='response-8'>Response</h3><div class="highlight"><pre class="highlight javascript"><code><span class="p">{</span>
+  <span class="dl">"</span><span class="s2">userCategory</span><span class="dl">"</span><span class="p">:</span> <span class="nx">UserCategory</span><span class="p">,</span>
+  <span class="dl">"</span><span class="s2">vipTier</span><span class="dl">"</span><span class="p">:</span> <span class="nx">VipTier</span><span class="p">,</span>
+  <span class="dl">"</span><span class="s2">makerFeePerc</span><span class="dl">"</span><span class="p">:</span> <span class="mf">0.05</span><span class="p">,</span> <span class="c1">//Maker Fee Percentage (Tierwise)</span>
+  <span class="dl">"</span><span class="s2">takerFeePerc</span><span class="dl">"</span><span class="p">:</span> <span class="mf">0.1</span><span class="p">,</span> <span class="c1">//Taker Fee Percentage (Tierwise)</span>
+  <span class="dl">"</span><span class="s2">referralCommissionPerc</span><span class="dl">"</span><span class="p">:</span> <span class="mi">20</span><span class="p">,</span> <span class="c1">//Referral Program - Referrer Commission Percentage (Tierwise)</span>
+  <span class="dl">"</span><span class="s2">feeDiscountPerc</span><span class="dl">"</span><span class="p">:</span> <span class="mi">10</span> <span class="c1">//Referral Program - Referee's Discount Percentage on trading Fee (Tierwise)</span>
+<span class="p">}</span>
 </code></pre></div>

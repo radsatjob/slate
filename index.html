@@ -402,24 +402,21 @@
                     <a href="#user-details" class="toc-h2 toc-link" data-title="User Details">User Details</a>
                   </li>
                   <li>
-                    <a href="#user" class="toc-h2 toc-link" data-title="User">User</a>
-                  </li>
-                  <li>
-                    <a href="#order" class="toc-h2 toc-link" data-title="Order">Order</a>
-                  </li>
-                  <li>
-                    <a href="#order-history" class="toc-h2 toc-link" data-title="Order History">Order History</a>
+                    <a href="#user-tier-information" class="toc-h2 toc-link" data-title="User Tier Information">User Tier Information</a>
                   </li>
               </ul>
           </li>
           <li>
-            <a href="#examples" class="toc-h1 toc-link" data-title="Examples">Examples</a>
+            <a href="#order" class="toc-h1 toc-link" data-title="Order">Order</a>
               <ul class="toc-list-h2">
                   <li>
-                    <a href="#case-1" class="toc-h2 toc-link" data-title="CASE 1">CASE 1</a>
+                    <a href="#open-orders" class="toc-h2 toc-link" data-title="Open Orders">Open Orders</a>
                   </li>
                   <li>
-                    <a href="#case-2" class="toc-h2 toc-link" data-title="CASE 2">CASE 2</a>
+                    <a href="#order-history" class="toc-h2 toc-link" data-title="Order History">Order History</a>
+                  </li>
+                  <li>
+                    <a href="#examples" class="toc-h2 toc-link" data-title="Examples">Examples</a>
                   </li>
                   <li>
                     <a href="#linked-orders" class="toc-h2 toc-link" data-title="Linked Orders">Linked Orders</a>
@@ -443,7 +440,37 @@
                     <a href="#place-order" class="toc-h2 toc-link" data-title="Place Order">Place Order</a>
                   </li>
                   <li>
-                    <a href="#position" class="toc-h2 toc-link" data-title="Position">Position</a>
+                    <a href="#orders-placed-from-position" class="toc-h2 toc-link" data-title="Orders placed from POSITION">Orders placed from <strong>POSITION</strong></a>
+                  </li>
+                  <li>
+                    <a href="#placing-take-profit-stop-loss-order-from-position" class="toc-h2 toc-link" data-title="Placing Take Profit, Stop loss order from Position">Placing Take Profit, Stop loss order from Position</a>
+                  </li>
+                  <li>
+                    <a href="#market-close-order" class="toc-h2 toc-link" data-title="Market Close Order">Market Close Order</a>
+                  </li>
+                  <li>
+                    <a href="#limit-close-order" class="toc-h2 toc-link" data-title="Limit Close Order">Limit Close Order</a>
+                  </li>
+                  <li>
+                    <a href="#placing-tp-sl-order-from-position" class="toc-h2 toc-link" data-title="Placing TP/ SL order from position">Placing TP/ SL order from position</a>
+                  </li>
+                  <li>
+                    <a href="#margin-history" class="toc-h2 toc-link" data-title="Margin History">Margin History</a>
+                  </li>
+                  <li>
+                    <a href="#wallet" class="toc-h2 toc-link" data-title="Wallet">Wallet</a>
+                  </li>
+                  <li>
+                    <a href="#transaction-history-of-the-user" class="toc-h2 toc-link" data-title="Transaction History of the User">Transaction History of the User</a>
+                  </li>
+                  <li>
+                    <a href="#transaction-history-by-transaction-id" class="toc-h2 toc-link" data-title="Transaction History by Transaction Id">Transaction History by Transaction Id</a>
+                  </li>
+                  <li>
+                    <a href="#trade-history" class="toc-h2 toc-link" data-title="Trade History">Trade History</a>
+                  </li>
+                  <li>
+                    <a href="#trade-history-by-trade-id" class="toc-h2 toc-link" data-title="Trade History by Trade Id">Trade History by Trade Id</a>
                   </li>
               </ul>
           </li>
@@ -1389,22 +1416,19 @@ Below is an overview of the public endpoints available in Pi42, their typical us
   "userId": number,
   "accountId": number
 }
-</code></pre></div><h2 id='user'>User</h2>
-<p>Tier Info <code>GET /v1/user/tier-info</code>
-User&#39;s tier info</p>
-<h3 id='response-8'>Response</h3><div class="highlight"><pre class="highlight plaintext"><code>{
-  "userCategory": UserCategory,
-  "vipTier": VipTier,
-  "makerFeePerc": 0.05, //Maker Fee Percentage (Tierwise)
-  "takerFeePerc": 0.1, //Taker Fee Percentage (Tierwise)
-  "referralCommissionPerc": 20, //Referral Program - Referrer Commission Percentage (Tierwise)
-  "feeDiscountPerc": 10 //Referral Program - Referee's Discount Percentage on trading Fee (Tierwise)
-}
+</code></pre></div><h2 id='user-tier-information'>User Tier Information</h2>
+<p><code>GET /v1/user/tier-info</code></p>
+<h3 id='response-8'>Response</h3><div class="highlight"><pre class="highlight javascript"><code><span class="p">{</span>
+  <span class="dl">"</span><span class="s2">userCategory</span><span class="dl">"</span><span class="p">:</span> <span class="nx">UserCategory</span><span class="p">,</span>
+  <span class="dl">"</span><span class="s2">vipTier</span><span class="dl">"</span><span class="p">:</span> <span class="nx">VipTier</span><span class="p">,</span>
+  <span class="dl">"</span><span class="s2">makerFeePerc</span><span class="dl">"</span><span class="p">:</span> <span class="mf">0.05</span><span class="p">,</span> <span class="c1">//Maker Fee Percentage (Tierwise)</span>
+  <span class="dl">"</span><span class="s2">takerFeePerc</span><span class="dl">"</span><span class="p">:</span> <span class="mf">0.1</span><span class="p">,</span> <span class="c1">//Taker Fee Percentage (Tierwise)</span>
+  <span class="dl">"</span><span class="s2">referralCommissionPerc</span><span class="dl">"</span><span class="p">:</span> <span class="mi">20</span><span class="p">,</span> <span class="c1">//Referral Program - Referrer Commission Percentage (Tierwise)</span>
+  <span class="dl">"</span><span class="s2">feeDiscountPerc</span><span class="dl">"</span><span class="p">:</span> <span class="mi">10</span> <span class="c1">//Referral Program - Referee's Discount Percentage on trading Fee (Tierwise)</span>
+<span class="p">}</span>
 </code></pre></div>
 
-<h2 id='order'>Order</h2>
-<p>Open Orders</p>
-
+<h1 id='order'>Order</h1><h2 id='open-orders'>Open Orders</h2>
 <p><code>GET /v1/order/open-orders</code></p>
 <h3 id='optional-query-params'>Optional Query Params</h3>
 <ul>
@@ -1568,7 +1592,7 @@ About nextTimestamp field in the response, it should be used as the query param 
 <aside class="note">
 Either of the bounds (start or end) can be skipped, for example, input can also be only endTimestamp while startTimestamp not being mentioned.
 </aside>
-<h1 id='examples'>Examples</h1><h2 id='case-1'>CASE 1</h2>
+<h2 id='examples'>Examples</h2><h3 id='case-1'>CASE 1</h3>
 <p>Get order history in descending order starting from 25th May 2024 (1716651879000) to 25th July 2024 (1721922358000) with pageSize 100. </p>
 
 <p>The starting point will be the following:</p>
@@ -1609,7 +1633,7 @@ The startTimestamp will not be changed in case of descending sortOrder.
   <span class="dl">"</span><span class="s2">nextTimestamp</span><span class="dl">"</span><span class="p">:</span> <span class="kc">null</span><span class="p">,</span>
   <span class="dl">"</span><span class="s2">data</span><span class="dl">"</span><span class="p">:</span> <span class="p">[]</span>
 <span class="p">}</span>
-</code></pre></div><h2 id='case-2'>CASE 2</h2>
+</code></pre></div><h3 id='case-2'>CASE 2</h3>
 <p>To get order history in ascending order starting from 1st Jan 2024 (1704109827000) to 1st Feb 2024 (1706788227000) with pageSize 20. The starting point will be the following request -</p>
 <h3 id='request-2'>Request</h3>
 <p><code>GET /v1/order/order-history?startTimestamp=1704109827000&amp;endTimestamp=1706788227000&amp;sortOrder=asc&amp;pageSize=20</code></p>
@@ -1737,7 +1761,7 @@ The endTimestamp will not be changed in case of ascending sortOrder.
 <li><code>clientOrderId</code>: string</li>
 </ul>
 
-<p>Example: GET /v1/order/clientOrderId=abc</p>
+<p>Example: <code>GET /v1/order/clientOrderId=abc</code></p>
 <h3 id='response-14'>Response</h3><div class="highlight"><pre class="highlight javascript"><code><span class="p">{</span>
   <span class="nl">id</span><span class="p">:</span> <span class="nx">number</span><span class="p">;</span>
   <span class="nl">clientOrderId</span><span class="p">:</span> <span class="nx">string</span><span class="p">;</span>
@@ -1870,79 +1894,67 @@ The endTimestamp will not be changed in case of ascending sortOrder.
   "price": 5600000,
   "takeProfitPrice": 6800000
 }
-</code></pre></div>
-<p>Orders placed from “POSITION”
-Request Body
-{
-  &quot;placeType&quot;: &quot;POSITION&quot;,
-  &quot;quantity&quot;: number,
-  &quot;reduceOnly&quot;: false,
-  &quot;type&quot;: UserOrderType, // Accepted values: MARKET, STOP_MARKET, LIMIT
-  &quot;price&quot;: number, // Required if type is LIMIT
-  &quot;positionId&quot;: string,
-  &quot;stopLossPrice&quot;: number, // Optional --&gt; If this is passed the type should be STOP_MARKET
-  &quot;takeProfitPrice&quot;: number // Optional --&gt; If this is passed the type should be STOP_MARKET
-}
-Response
-{
-    clientOrderId: string,
-    time: &quot;timestamp&quot;,
-    symbol: string,
-    contractType: string, 
-    type: UserOrderType,
-    side: OrderSide,
-    price: number;
-    orderAmount: number,
-    filledAmount: number,
-    availableBalance: number,
-    linkId: string,
-    linkType: OrderLinkType,
-    subType: OrderSubType, 
-    placeType: PlaceType,
-    lockedMargin: number,
-    refId: string, // Optional
-    &quot;baseAsset&quot;: string,
-    &quot;quoteAsset&quot;: string,
-    &quot;marginAsset&quot;: string,
-    &quot;lockedMarginInMarginAsset&quot;: number
-  }
-Sample:
-Placing Take Profit, Stop loss order from Position
-Request Body
-{
-  &quot;placeType&quot;: &quot;POSITION&quot;,
-  &quot;quantity&quot;: 0.01,
-  &quot;reduceOnly&quot;: false,
-  &quot;type&quot;: &quot;STOP_MARKET&quot;,
-  &quot;positionId&quot;: &quot;abcd-efgh-123&quot;,
-  &quot;stopLossPrice&quot;: 6000000, 
-  &quot;takeProfitPrice&quot;: 6500000
-}
-Market Close Order
-Request Body
-{
-  &quot;placeType&quot;: &quot;POSITION&quot;,
-  &quot;quantity&quot;: 0.01,
-  &quot;reduceOnly&quot;: false,
-  &quot;type&quot;: &quot;MARKET&quot;,
-  &quot;positionId&quot;: &quot;abcd-efgh-123&quot;
-}
-Limit Close Order
-Request Body
-{
-  &quot;placeType&quot;: &quot;POSITION&quot;,
-  &quot;quantity&quot;: 0.01,
-  &quot;reduceOnly&quot;: false,
-  &quot;type&quot;: &quot;LIMIT&quot;, 
-  &quot;positionId&quot;: &quot;abcd-efgh-123&quot;,
-  &quot;price&quot;: 6400000
-}</p>
+</code></pre></div><h2 id='orders-placed-from-position'>Orders placed from <strong>POSITION</strong></h2><h3 id='request-body-5'>Request Body</h3><div class="highlight"><pre class="highlight javascript"><code><span class="p">{</span>
+  <span class="dl">"</span><span class="s2">placeType</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">POSITION</span><span class="dl">"</span><span class="p">,</span>
+  <span class="dl">"</span><span class="s2">quantity</span><span class="dl">"</span><span class="p">:</span> <span class="nx">number</span><span class="p">,</span>
+  <span class="dl">"</span><span class="s2">reduceOnly</span><span class="dl">"</span><span class="p">:</span> <span class="kc">false</span><span class="p">,</span>
+  <span class="dl">"</span><span class="s2">type</span><span class="dl">"</span><span class="p">:</span> <span class="nx">UserOrderType</span><span class="p">,</span> <span class="c1">// Accepted values: MARKET, STOP_MARKET, LIMIT</span>
+  <span class="dl">"</span><span class="s2">price</span><span class="dl">"</span><span class="p">:</span> <span class="nx">number</span><span class="p">,</span> <span class="c1">// Required if type is LIMIT</span>
+  <span class="dl">"</span><span class="s2">positionId</span><span class="dl">"</span><span class="p">:</span> <span class="nx">string</span><span class="p">,</span>
+  <span class="dl">"</span><span class="s2">stopLossPrice</span><span class="dl">"</span><span class="p">:</span> <span class="nx">number</span><span class="p">,</span> <span class="c1">// Optional --&gt; If this is passed the type should be STOP_MARKET</span>
+  <span class="dl">"</span><span class="s2">takeProfitPrice</span><span class="dl">"</span><span class="p">:</span> <span class="nx">number</span> <span class="c1">// Optional --&gt; If this is passed the type should be STOP_MARKET</span>
+<span class="p">}</span>
+</code></pre></div><h3 id='response-16'>Response</h3><div class="highlight"><pre class="highlight javascript"><code><span class="p">{</span>
+    <span class="nl">clientOrderId</span><span class="p">:</span> <span class="nx">string</span><span class="p">,</span>
+    <span class="nx">time</span><span class="p">:</span> <span class="dl">"</span><span class="s2">timestamp</span><span class="dl">"</span><span class="p">,</span>
+    <span class="nx">symbol</span><span class="p">:</span> <span class="nx">string</span><span class="p">,</span>
+    <span class="nx">contractType</span><span class="p">:</span> <span class="nx">string</span><span class="p">,</span> 
+    <span class="nx">type</span><span class="p">:</span> <span class="nx">UserOrderType</span><span class="p">,</span>
+    <span class="nx">side</span><span class="p">:</span> <span class="nx">OrderSide</span><span class="p">,</span>
+    <span class="nx">price</span><span class="p">:</span> <span class="nx">number</span><span class="p">;</span>
+    <span class="nl">orderAmount</span><span class="p">:</span> <span class="nx">number</span><span class="p">,</span>
+    <span class="nx">filledAmount</span><span class="p">:</span> <span class="nx">number</span><span class="p">,</span>
+    <span class="nx">availableBalance</span><span class="p">:</span> <span class="nx">number</span><span class="p">,</span>
+    <span class="nx">linkId</span><span class="p">:</span> <span class="nx">string</span><span class="p">,</span>
+    <span class="nx">linkType</span><span class="p">:</span> <span class="nx">OrderLinkType</span><span class="p">,</span>
+    <span class="nx">subType</span><span class="p">:</span> <span class="nx">OrderSubType</span><span class="p">,</span> 
+    <span class="nx">placeType</span><span class="p">:</span> <span class="nx">PlaceType</span><span class="p">,</span>
+    <span class="nx">lockedMargin</span><span class="p">:</span> <span class="nx">number</span><span class="p">,</span>
+    <span class="nx">refId</span><span class="p">:</span> <span class="nx">string</span><span class="p">,</span> <span class="c1">// Optional</span>
+    <span class="dl">"</span><span class="s2">baseAsset</span><span class="dl">"</span><span class="p">:</span> <span class="nx">string</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">quoteAsset</span><span class="dl">"</span><span class="p">:</span> <span class="nx">string</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">marginAsset</span><span class="dl">"</span><span class="p">:</span> <span class="nx">string</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">lockedMarginInMarginAsset</span><span class="dl">"</span><span class="p">:</span> <span class="nx">number</span>
+  <span class="p">}</span>
 
-<p>Placing TP/ SL order from position
-Maximum quantity for take profit or stop loss order that can be placed is the position quantity</p>
-
-<p>Example:
-Consider an open position of 0.05 BTC
+</code></pre></div><h2 id='placing-take-profit-stop-loss-order-from-position'>Placing Take Profit, Stop loss order from Position</h2><h3 id='request-body-6'>Request Body</h3><div class="highlight"><pre class="highlight javascript"><code><span class="p">{</span>
+  <span class="dl">"</span><span class="s2">placeType</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">POSITION</span><span class="dl">"</span><span class="p">,</span>
+  <span class="dl">"</span><span class="s2">quantity</span><span class="dl">"</span><span class="p">:</span> <span class="mf">0.01</span><span class="p">,</span>
+  <span class="dl">"</span><span class="s2">reduceOnly</span><span class="dl">"</span><span class="p">:</span> <span class="kc">false</span><span class="p">,</span>
+  <span class="dl">"</span><span class="s2">type</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">STOP_MARKET</span><span class="dl">"</span><span class="p">,</span>
+  <span class="dl">"</span><span class="s2">positionId</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">abcd-efgh-123</span><span class="dl">"</span><span class="p">,</span>
+  <span class="dl">"</span><span class="s2">stopLossPrice</span><span class="dl">"</span><span class="p">:</span> <span class="mi">6000000</span><span class="p">,</span> 
+  <span class="dl">"</span><span class="s2">takeProfitPrice</span><span class="dl">"</span><span class="p">:</span> <span class="mi">6500000</span>
+<span class="p">}</span>
+</code></pre></div><h2 id='market-close-order'>Market Close Order</h2><h3 id='request-body-7'>Request Body</h3><div class="highlight"><pre class="highlight javascript"><code><span class="p">{</span>
+  <span class="dl">"</span><span class="s2">placeType</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">POSITION</span><span class="dl">"</span><span class="p">,</span>
+  <span class="dl">"</span><span class="s2">quantity</span><span class="dl">"</span><span class="p">:</span> <span class="mf">0.01</span><span class="p">,</span>
+  <span class="dl">"</span><span class="s2">reduceOnly</span><span class="dl">"</span><span class="p">:</span> <span class="kc">false</span><span class="p">,</span>
+  <span class="dl">"</span><span class="s2">type</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">MARKET</span><span class="dl">"</span><span class="p">,</span>
+  <span class="dl">"</span><span class="s2">positionId</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">abcd-efgh-123</span><span class="dl">"</span>
+<span class="p">}</span>
+</code></pre></div><h2 id='limit-close-order'>Limit Close Order</h2><h3 id='request-body-8'>Request Body</h3><div class="highlight"><pre class="highlight javascript"><code><span class="p">{</span>
+  <span class="dl">"</span><span class="s2">placeType</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">POSITION</span><span class="dl">"</span><span class="p">,</span>
+  <span class="dl">"</span><span class="s2">quantity</span><span class="dl">"</span><span class="p">:</span> <span class="mf">0.01</span><span class="p">,</span>
+  <span class="dl">"</span><span class="s2">reduceOnly</span><span class="dl">"</span><span class="p">:</span> <span class="kc">false</span><span class="p">,</span>
+  <span class="dl">"</span><span class="s2">type</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">LIMIT</span><span class="dl">"</span><span class="p">,</span> 
+  <span class="dl">"</span><span class="s2">positionId</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">abcd-efgh-123</span><span class="dl">"</span><span class="p">,</span>
+  <span class="dl">"</span><span class="s2">price</span><span class="dl">"</span><span class="p">:</span> <span class="mi">6400000</span>
+<span class="p">}</span>
+</code></pre></div><h2 id='placing-tp-sl-order-from-position'>Placing TP/ SL order from position</h2>
+<p>Maximum quantity for take profit or stop loss order that can be placed is the position quantity</p>
+<h3 id='example-2'>Example</h3>
+<p>Consider an open position of 0.05 BTC
 No Take profit order exists for this contract, then 0.05 BTC can be placed
 Take profit order of 0.02 BTC already exists → 0.05 - 0.02 = 0.03 BTC can be placed
 Same case for stop loss orders</p>
@@ -1951,10 +1963,10 @@ Same case for stop loss orders</p>
 For calculating total quantity of open stop loss orders for a contract pair → use sub type STOP_LOSS
 For calculating total quantity of open take profit orders for a contract pair → use sub type TAKE_PROFIT
 Along with above, use placeType POSITION.
-Consider this position
-Position → BTCINR, 0.8 BTC
-Open Orders
-[
+Consider this position : Position → BTCINR, 0.8 BTC
+Open Orders</p>
+
+<p>[
   {
     &quot;clientOrderId&quot;: &quot;9f72fddf886c37b41e96-5-ext&quot;,
     &quot;time&quot;: &quot;2024-02-21T14:19:39.604Z&quot;,
@@ -1985,296 +1997,211 @@ Open Orders
     &quot;subType&quot;: &quot;STOP_LOSS&quot;,
     &quot;placeType&quot;: &quot;POSITION&quot;
   },
-]
-The open take profit orders for this contract pair is 0.02 BTC and stop loss is 0.03 BTC. The maximum take profit quantity that can be placed is 0.8 - 0.02 = 0.78 BTC and for stop loss it is 0.8 - 0.03 = 0.77 BTC.
+]</p>
+
+<p>The open take profit orders for this contract pair is 0.02 BTC and stop loss is 0.03 BTC. The maximum take profit quantity that can be placed is 0.8 - 0.02 = 0.78 BTC and for stop loss it is 0.8 - 0.03 = 0.77 BTC.
 If both takeProfit and stopLoss order for a position is placed: Minimum (available takeProfitQty, available stopLossQty) will be accepted. In the above example it will be 0.77 BTC.
-Individual quantities will be as per the individual calculations.
-Margin History - GET /v1/order/fetch-margin-history
-Optional Query Params:
-startTimestamp: number (UNIX timestamp in milliseconds)
-endTimestamp: number (UNIX timestamp in milliseconds)
-sortOrder: string (asc or desc, default: desc)
-pageSize: number
-Get margin history (add/reduce margin) for a user
-For Example: GET v1/order/fetch-margin-history?pageSize=10&amp;sortOrder=desc&amp;startTimestamp=1721031346916
-Default Response: (Without query params)
-{
-  &quot;data&quot;: [
-    {
-      &quot;id&quot;: 6,
-      &quot;amount&quot;: 2,
-      &quot;refId&quot;: null,
-      &quot;marginInMarginAsset&quot;: 2,
-      &quot;marginAsset&quot;: &quot;INR&quot;,
-      &quot;positionId&quot;: &quot;f01c6f65-90ff-4da8-b735-a6f8ac877e01&quot;,
-      &quot;operation&quot;: &quot;ADD_MARGIN&quot;,
-      &quot;createdAt&quot;: &quot;2024-07-15T08:16:47.925Z&quot;,
-      &quot;updatedAt&quot;: &quot;2024-07-15T08:16:47.925Z&quot;
-    }
-  ],
-  &quot;totalCount&quot;: 2,
-  &quot;nextTimestamp&quot;: &quot;1721031407925&quot;
-}
-Note: About nextTimestamp field in the response, it should be used as the query param for the next api call for pagination.
+Individual quantities will be as per the individual calculations.</p>
+<h2 id='margin-history'>Margin History</h2>
+<p>Get margin history (add/reduce margin) for a user</p>
+
+<p>GET /v1/order/fetch-margin-history</p>
+<h3 id='optional-query-params-3'>Optional Query Params</h3>
+<ul>
+<li><code>startTimestamp</code> number (UNIX timestamp in milliseconds)</li>
+<li> <code>endTimestamp</code> number (UNIX timestamp in milliseconds)</li>
+<li> <code>sortOrder</code> string (asc or desc, default: desc)</li>
+<li><code>pageSize</code> number</li>
+</ul>
+
+<p>Example:</p>
+
+<p><code>GET v1/order/fetch-margin-history?pageSize=10&amp;sortOrder=desc&amp;startTimestamp=1721031346916</code></p>
+<h3 id='response-17'>Response</h3>
+<blockquote>
+<p>Without query params</p>
+</blockquote>
+<div class="highlight"><pre class="highlight javascript"><code><span class="p">{</span>
+  <span class="dl">"</span><span class="s2">data</span><span class="dl">"</span><span class="p">:</span> <span class="p">[</span>
+    <span class="p">{</span>
+      <span class="dl">"</span><span class="s2">id</span><span class="dl">"</span><span class="p">:</span> <span class="mi">6</span><span class="p">,</span>
+      <span class="dl">"</span><span class="s2">amount</span><span class="dl">"</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span>
+      <span class="dl">"</span><span class="s2">refId</span><span class="dl">"</span><span class="p">:</span> <span class="kc">null</span><span class="p">,</span>
+      <span class="dl">"</span><span class="s2">marginInMarginAsset</span><span class="dl">"</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span>
+      <span class="dl">"</span><span class="s2">marginAsset</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">INR</span><span class="dl">"</span><span class="p">,</span>
+      <span class="dl">"</span><span class="s2">positionId</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">f01c6f65-90ff-4da8-b735-a6f8ac877e01</span><span class="dl">"</span><span class="p">,</span>
+      <span class="dl">"</span><span class="s2">operation</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">ADD_MARGIN</span><span class="dl">"</span><span class="p">,</span>
+      <span class="dl">"</span><span class="s2">createdAt</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">2024-07-15T08:16:47.925Z</span><span class="dl">"</span><span class="p">,</span>
+      <span class="dl">"</span><span class="s2">updatedAt</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">2024-07-15T08:16:47.925Z</span><span class="dl">"</span>
+    <span class="p">}</span>
+  <span class="p">],</span>
+  <span class="dl">"</span><span class="s2">totalCount</span><span class="dl">"</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span>
+  <span class="dl">"</span><span class="s2">nextTimestamp</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">1721031407925</span><span class="dl">"</span>
+<span class="p">}</span>
+</code></pre></div>
+<aside class="warning">
+About nextTimestamp field in the response, it should be used as the query param for the next api call for pagination.
+</aside>
+<h3 id='case-1-sortorder-is-ascending-3'>Case 1: sortOrder is ascending</h3>
+<p>In this case, shift the lower bound, i.e. nextTimestamp value should be entered in the startTimestamp query param for the next API call.</p>
+<h3 id='case2-sortorder-is-descending'>Case2: sortOrder is descending</h3>
+<p>In this case, shift the upper bound, i.e. nextTimestamp value should be entered in the endTimestamp query param for the next API call.</p>
+
+<aside class="tip">
+Either of the bounds (start or end) can be skipped, for example, input can also be only endTimestamp while startTimestamp not being mentioned.
+</aside>
+
+<p>For examples of usage of <code>startTimestamp</code>, <code>endTimestamp</code>, <code>sortOrder</code>, <code>Pagesize</code> - please refer the “Examples” section of Order History.</p>
+<h2 id='wallet'>Wallet</h2>
+<p>INR Wallet Details</p>
+
+<p><code>GET /v1/wallet/inr-wallet/details</code></p>
+
+<p>Response</p>
+<div class="highlight"><pre class="highlight javascript"><code><span class="p">{</span>
+  <span class="dl">"</span><span class="s2">inrBalance</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">50000.70</span><span class="dl">"</span><span class="p">,</span>
+  <span class="dl">"</span><span class="s2">withdrawableBalance</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">40000.20</span><span class="dl">"</span><span class="p">,</span>
+  <span class="dl">"</span><span class="s2">lockedBalance</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">10000.50</span><span class="dl">"</span>
+<span class="p">}</span>
+</code></pre></div><h2 id='transaction-history-of-the-user'>Transaction History of the User</h2>
+<p>Get user&#39;s transaction history.</p>
+
+<p>`GET /v1/user-data/transaction-history</p>
+<h3 id='optional-query-params-4'>Optional Query Params</h3>
+<ul>
+<li><code>startTimestamp</code>: number (UNIX timestamp in milliseconds)</li>
+<li><code>endTimestamp</code>: number (UNIX timestamp in milliseconds)</li>
+<li><code>sortOrder</code>: string (asc or desc, default: desc)</li>
+<li><code>pageSize</code>: number (default: 100)</li>
+<li><code>tradeId</code>: number</li>
+<li><code>positionId</code>: string</li>
+</ul>
+
+<aside class="warning">
+If tradeId is passed, transaction history of that trade will be returned. This will include `REALIZED_PNL`, `COMMISSION`, `GST_ON_COMMISSION`, `FEE_DISCOUNT` Transaction Types.
+If positionId is passed, transaction history of that position will be returned. This will include `FUNDING_FEE`, `GST_ON_FUNDING_FEE` Transaction Types.
+Do not pass `tradeId` and `positionId` together.
+</aside>
+<h3 id='example-request'>Example - Request</h3>
+<p><code>GET /v1/user-data/transaction-history?startTimestamp=1720103457000&amp;endTimestamp=1720603457000&amp;sortOrder=desc&amp;pageSize=100</code></p>
+<h3 id='response-18'>Response</h3>
+<blockquote>
+<p>Without query params</p>
+</blockquote>
+<div class="highlight"><pre class="highlight plaintext"><code>[
+   {
+      "id": number,
+      "time": timestamp,
+      "type": TransactionType,
+      "amount": number,
+      "asset": "INR",
+      "symbol": "BTCINR", // Contract Pair BTCINR, ETHINR, etc.
+      "contractType": "PERPETUAL",
+      "baseAsset": string,
+      "quoteAsset": string
+   }
+ ]
+</code></pre></div>
+<blockquote>
+<p>With query params</p>
+</blockquote>
+<div class="highlight"><pre class="highlight javascript"><code><span class="p">{</span>
+  <span class="dl">"</span><span class="s2">totalCount</span><span class="dl">"</span><span class="p">:</span> <span class="mi">877</span><span class="p">,</span>
+  <span class="dl">"</span><span class="s2">nextTimestamp</span><span class="dl">"</span><span class="p">:</span> <span class="mi">1703047483451</span><span class="p">,</span>
+  <span class="dl">"</span><span class="s2">data</span><span class="dl">"</span><span class="p">:</span> <span class="p">[</span>
+    <span class="p">{</span>
+      <span class="dl">"</span><span class="s2">id</span><span class="dl">"</span><span class="p">:</span> <span class="mi">46672</span><span class="p">,</span>
+      <span class="dl">"</span><span class="s2">time</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">2024-04-29T08:20:43.543Z</span><span class="dl">"</span><span class="p">,</span>
+      <span class="dl">"</span><span class="s2">type</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">COMMISSION</span><span class="dl">"</span><span class="p">,</span>
+      <span class="dl">"</span><span class="s2">amount</span><span class="dl">"</span><span class="p">:</span> <span class="o">-</span><span class="mf">10.46</span><span class="p">,</span>
+      <span class="dl">"</span><span class="s2">asset</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">INR</span><span class="dl">"</span><span class="p">,</span>
+      <span class="dl">"</span><span class="s2">symbol</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">BTCINR</span><span class="dl">"</span><span class="p">,</span>
+      <span class="dl">"</span><span class="s2">contractType</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">PERPETUAL</span><span class="dl">"</span><span class="p">,</span>
+      <span class="dl">"</span><span class="s2">baseAsset</span><span class="dl">"</span><span class="p">:</span> <span class="nx">string</span><span class="p">,</span>
+      <span class="dl">"</span><span class="s2">quoteAsset</span><span class="dl">"</span><span class="p">:</span> <span class="nx">string</span>
+    <span class="p">},</span>
+  <span class="p">],</span>
+<span class="p">}</span>
+</code></pre></div>
+<p>Note: About nextTimestamp field in the response, it should be used as the query param for the next API call for pagination:
 Case 1: sortOrder is ascending,
 In this case, shift the lower bound, i.e. nextTimestamp value should be entered in the startTimestamp query param for the next API call.
 Case2: sortOrder is descending,
 In this case, shift the upper bound, i.e. nextTimestamp value should be entered in the endTimestamp query param for the next API call.
 Note: Either of the bounds (start or end) can be skipped, for example, input can also be only endTimestamp while startTimestamp not being mentioned.
 For examples of usage of startTimestamp, endTimestamp, sortOrder, Pagesize - please refer the “Examples” section of Order History.</p>
-
-<p>Wallet
-INR Wallet Details - GET /v1/wallet/inr-wallet/details
-Response
-{
-  &quot;inrBalance&quot;: &quot;50000.70&quot;,
-  &quot;withdrawableBalance&quot;: &quot;40000.20&quot;,
-  &quot;lockedBalance&quot;: &quot;10000.50&quot;
-}</p>
-
-<p>User Data
-Transaction History - GET /v1/user-data/transaction-history
-Optional Query Params:
-startTimestamp: number (UNIX timestamp in milliseconds)
-endTimestamp: number (UNIX timestamp in milliseconds)
-sortOrder: string (asc or desc, default: desc)
-pageSize: number (default: 100)
-tradeId: number
-positionId: string
-Get user’s transaction history.
-Important Points:
-If tradeId is passed, transaction history of that trade will be returned. This will include REALIZED_PNL, COMMISSION, GST_ON_COMMISSION, FEE_DISCOUNT Transaction Types.
-If positionId is passed, transaction history of that position will be returned. This will include FUNDING_FEE, GST_ON_FUNDING_FEE Transaction Types.
-Do not pass tradeId and positionId together.
-For Example: GET /v1/user-data/transaction-history?startTimestamp=1720103457000&amp;endTimestamp=1720603457000&amp;sortOrder=desc&amp;pageSize=100
-Default Response: (Without query params)
-[
-   {
-      &quot;id&quot;: number,
-      &quot;time&quot;: timestamp,
-      &quot;type&quot;: TransactionType,
-      &quot;amount&quot;: number,
-      &quot;asset&quot;: &quot;INR&quot;,
-      &quot;symbol&quot;: &quot;BTCINR&quot;, // Contract Pair BTCINR, ETHINR, etc.
-      &quot;contractType&quot;: &quot;PERPETUAL&quot;,
-      &quot;baseAsset&quot;: string,
-      &quot;quoteAsset&quot;: string
-   }
- ]
-New Response: (With query params)
-{
-  &quot;totalCount&quot;: 877,
-  &quot;nextTimestamp&quot;: 1703047483451,
-  &quot;data&quot;: [
-    {
-      &quot;id&quot;: 46672,
-      &quot;time&quot;: &quot;2024-04-29T08:20:43.543Z&quot;,
-      &quot;type&quot;: &quot;COMMISSION&quot;,
-      &quot;amount&quot;: -10.46,
-      &quot;asset&quot;: &quot;INR&quot;,
-      &quot;symbol&quot;: &quot;BTCINR&quot;,
-      &quot;contractType&quot;: &quot;PERPETUAL&quot;,
-      &quot;baseAsset&quot;: string,
-      &quot;quoteAsset&quot;: string
-    },
-  ],
-}
-Note: About nextTimestamp field in the response, it should be used as the query param for the next API call for pagination:
-Case 1: sortOrder is ascending,
-In this case, shift the lower bound, i.e. nextTimestamp value should be entered in the startTimestamp query param for the next API call.
-Case2: sortOrder is descending,
-In this case, shift the upper bound, i.e. nextTimestamp value should be entered in the endTimestamp query param for the next API call.
-Note: Either of the bounds (start or end) can be skipped, for example, input can also be only endTimestamp while startTimestamp not being mentioned.
-For examples of usage of startTimestamp, endTimestamp, sortOrder, Pagesize - please refer the “Examples” section of Order History.
-Transaction History by Transaction Id - GET /v1/user-data/transaction-history/{id}
+<h2 id='transaction-history-by-transaction-id'>Transaction History by Transaction Id</h2>
+<p>GET /v1/user-data/transaction-history/{id}
 Get user’s transaction history based on transaction id.
-For Example: GET /v1/user-data/transaction-history/10
-Response:
-{
-  &quot;id&quot;: number,
-  &quot;time&quot;: timestamp,
-  &quot;type&quot;: TransactionType,
-  &quot;amount&quot;: number,
-  &quot;asset&quot;: &quot;INR&quot;,
-  &quot;symbol&quot;: &quot;BTCINR&quot;, // Contract Pair BTCINR, ETHINR, etc.
-  &quot;contractType&quot;: &quot;PERPETUAL&quot;,
-  &quot;baseAsset&quot;: string,
-  &quot;quoteAsset&quot;: string
-}
-Trade History - GET /v1/user-data/trade-history
-Optional Query Params:
-startTimestamp: number (UNIX timestamp in milliseconds)
-endTimestamp: number (UNIX timestamp in milliseconds)
+For Example: GET /v1/user-data/transaction-history/10</p>
+<h3 id='response-19'>Response</h3><div class="highlight"><pre class="highlight javascript"><code><span class="p">{</span>
+  <span class="dl">"</span><span class="s2">id</span><span class="dl">"</span><span class="p">:</span> <span class="nx">number</span><span class="p">,</span>
+  <span class="dl">"</span><span class="s2">time</span><span class="dl">"</span><span class="p">:</span> <span class="nx">timestamp</span><span class="p">,</span>
+  <span class="dl">"</span><span class="s2">type</span><span class="dl">"</span><span class="p">:</span> <span class="nx">TransactionType</span><span class="p">,</span>
+  <span class="dl">"</span><span class="s2">amount</span><span class="dl">"</span><span class="p">:</span> <span class="nx">number</span><span class="p">,</span>
+  <span class="dl">"</span><span class="s2">asset</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">INR</span><span class="dl">"</span><span class="p">,</span>
+  <span class="dl">"</span><span class="s2">symbol</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">BTCINR</span><span class="dl">"</span><span class="p">,</span> <span class="c1">// Contract Pair BTCINR, ETHINR, etc.</span>
+  <span class="dl">"</span><span class="s2">contractType</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">PERPETUAL</span><span class="dl">"</span><span class="p">,</span>
+  <span class="dl">"</span><span class="s2">baseAsset</span><span class="dl">"</span><span class="p">:</span> <span class="nx">string</span><span class="p">,</span>
+  <span class="dl">"</span><span class="s2">quoteAsset</span><span class="dl">"</span><span class="p">:</span> <span class="nx">string</span>
+<span class="p">}</span>
+</code></pre></div><h2 id='trade-history'>Trade History</h2><h3 id='http-request'>HTTP Request</h3>
+<p><code>GET /v1/user-data/trade-history</code></p>
+<h3 id='optional-query-parameters'>Optional Query Parameters</h3>
+<ul>
+<li><code>startTimestamp</code>: number -  (UNIX timestamp in milliseconds)</li>
+<li><code>endTimestamp</code>:  number  (UNIX timestamp in milliseconds)
 sortOrder: string (asc or desc, default: desc)
 pageSize: number (default: 100)
 Get User’s trade history.
 For Example: GET /v1/user-data/trade-history?startTimestamp=1720103457000&amp;endTimestamp=1720603457000&amp;sortOrder=desc&amp;pageSize=100
 Default Response: (Without query params)
 [
-  {
-    &quot;id&quot;: number,
-    &quot;time&quot;: &quot;timestamp&quot;,
-    &quot;symbol&quot;: &quot;BTCINR&quot;, // Contract Pair BTCINR, ETHINR, etc.
-    &quot;type&quot;: UserOrderType,
-    &quot;side&quot;: OrderSide,
-    &quot;price&quot;: number,
-    &quot;quantity&quot;: number,
-    &quot;role&quot;: TradeRole, // TAKER, MAKER
-    &quot;fee&quot;: number,
-    &quot;feeInMarginAsset&quot;: number, // Optional
-    &quot;realizedProfit&quot;: number,
-    &quot;realizedProfitInMarginAsset&quot;: number, // Optional
-    &quot;contractType&quot;: &quot;PERPETUAL&quot;,
-    &quot;clientOrderId&quot;: string,
-    &quot;baseAsset&quot;: string,
-    &quot;quoteAsset&quot;: string,
-    &quot;marginAsset&quot;: string
-  }<br>
+{
+&quot;id&quot;: number,
+&quot;time&quot;: &quot;timestamp&quot;,
+&quot;symbol&quot;: &quot;BTCINR&quot;, // Contract Pair BTCINR, ETHINR, etc.
+&quot;type&quot;: UserOrderType,
+&quot;side&quot;: OrderSide,
+&quot;price&quot;: number,
+&quot;quantity&quot;: number,
+&quot;role&quot;: TradeRole, // TAKER, MAKER
+&quot;fee&quot;: number,
+&quot;feeInMarginAsset&quot;: number, // Optional
+&quot;realizedProfit&quot;: number,
+&quot;realizedProfitInMarginAsset&quot;: number, // Optional
+&quot;contractType&quot;: &quot;PERPETUAL&quot;,
+&quot;clientOrderId&quot;: string,
+&quot;baseAsset&quot;: string,
+&quot;quoteAsset&quot;: string,
+&quot;marginAsset&quot;: string
+}<br>
 ]
 New Response: (With query params)
 {
-  &quot;totalCount&quot;: 480,
-  &quot;nextTimestamp&quot;: 1703047483451,
-  &quot;data&quot;: [
-    {
-      &quot;id&quot;: 13339,
-      &quot;time&quot;: &quot;2024-04-24T06:48:24.575Z&quot;,
-      &quot;symbol&quot;: &quot;XRPINR&quot;,
-      &quot;type&quot;: &quot;MARKET&quot;,
-      &quot;side&quot;: &quot;BUY&quot;,
-      &quot;price&quot;: 53.75,
-      &quot;quantity&quot;: 11,
-      &quot;role&quot;: &quot;TAKER&quot;,
-      &quot;fee&quot;: 0.35,
-      &quot;feeInMarginAsset&quot;: number, // Optional
-      &quot;realizedProfit&quot;: -0.55,
-      &quot;realizedProfitInMarginAsset&quot;: number, // Optional
-      &quot;contractType&quot;: &quot;PERPETUAL&quot;,
-      &quot;clientOrderId&quot;: &quot;9469f5402004ff53b48a-12-ext&quot;,
-      &quot;baseAsset&quot;: string,
-      &quot;quoteAsset&quot;: string,
-      &quot;marginAsset&quot;: string
-    },
-  ],
-}
-Note: About nextTimestamp field in the response, it should be used as the query param for the next API call for pagination:
-Case 1: sortOrder is ascending,
-In this case, shift the lower bound, i.e. nextTimestamp value should be entered in the startTimestamp query param for the next API call.
-Case2: sortOrder is descending,
-In this case, shift the upper bound, i.e. nextTimestamp value should be entered in the endTimestamp query param for the next API call.
-Note: Either of the bounds (start or end) can be skipped, for example, input can also be only endTimestamp while startTimestamp not being mentioned.
-For examples of usage of startTimestamp, endTimestamp, sortOrder, Pagesize - please refer the “Examples” section of Order History.
-Trade History by Trade Id - GET /v1/user-data/trade-history/{id}
-Get user’s trade history for based on trade id.
-For Example: GET /v1/user-data/trade-history/10
-Response:
+&quot;totalCount&quot;: 480,
+&quot;nextTimestamp&quot;: 1703047483451,
+&quot;data&quot;: [
 {
-  &quot;id&quot;: number,
-  &quot;time&quot;: &quot;timestamp&quot;,
-  &quot;symbol&quot;: &quot;BTCINR&quot;, // Contract Pair BTCINR, ETHINR, etc.
-  &quot;type&quot;: UserOrderType,
-  &quot;side&quot;: OrderSide,
-  &quot;price&quot;: number,
-  &quot;quantity&quot;: number,
-  &quot;role&quot;: TradeRole, // TAKER, MAKER
-  &quot;fee&quot;: number,
+  &quot;id&quot;: 13339,
+  &quot;time&quot;: &quot;2024-04-24T06:48:24.575Z&quot;,
+  &quot;symbol&quot;: &quot;XRPINR&quot;,
+  &quot;type&quot;: &quot;MARKET&quot;,
+  &quot;side&quot;: &quot;BUY&quot;,
+  &quot;price&quot;: 53.75,
+  &quot;quantity&quot;: 11,
+  &quot;role&quot;: &quot;TAKER&quot;,
+  &quot;fee&quot;: 0.35,
   &quot;feeInMarginAsset&quot;: number, // Optional
-  &quot;realizedProfit&quot;: number,
+  &quot;realizedProfit&quot;: -0.55,
   &quot;realizedProfitInMarginAsset&quot;: number, // Optional
   &quot;contractType&quot;: &quot;PERPETUAL&quot;,
-  &quot;clientOrderId&quot;: string,
+  &quot;clientOrderId&quot;: &quot;9469f5402004ff53b48a-12-ext&quot;,
   &quot;baseAsset&quot;: string,
   &quot;quoteAsset&quot;: string,
   &quot;marginAsset&quot;: string
-}</p>
-<h2 id='position'>Position</h2>
-<p>Positions - GET /v1/positions/{positionStatus}
-Optional Query Params:
-startTimestamp: number (UNIX timestamp in milliseconds)
-endTimestamp: number (UNIX timestamp in milliseconds)
-sortOrder: string (asc or desc, default: desc)
-pageSize: number (default: 100)
-List Positions based on position status
-positionStatus can be OPEN, CLOSED, LIQUIDATED
-For Example: GET /v1/positions/OPEN?startTimestamp=1720103457000&amp;endTimestamp=1720603457000&amp;sortOrder=desc&amp;pageSize=100
-Default Response: (Without query params)
-[
-  {
-    &quot;contractPair&quot;: string,
-    &quot;entryPrice&quot;: number,
-    &quot;leverage&quot;: number,
-    &quot;liquidationPrice&quot;: number,
-    &quot;marginType&quot;: &quot;ISOLATED&quot;,
-    &quot;marginAsset&quot;: string,
-    &quot;margin&quot;: number,
-    &quot;marginInMarginAsset&quot;: number, // Optional
-    &quot;positionAmount&quot;: number,
-    &quot;positionId&quot;: string,
-    &quot;positionSize&quot;: number,
-    &quot;positionStatus&quot;: PositionStatus,
-    &quot;positionType&quot;: PositionType,
-    &quot;realizedProfit&quot;: number,
-    &quot;realizedProfitInMarginAsset&quot;: number, // Optional
-    &quot;quantity&quot;: number,
-    &quot;createdAt&quot;: &quot;timestamp&quot;,
-    &quot;contractType&quot;: &quot;PERPETUAL&quot;,
-    &quot;iconUrl&quot;: string,
-    &quot;baseAsset&quot;: string,
-    &quot;quoteAsset&quot;: string
-  }
-]
-New Response: (With query params)
-{
-  &quot;totalCount&quot;: 2,
-  &quot;nextTimestamp&quot;: 1703047483451,
-  &quot;data&quot;: [
-      {
-      &quot;contractPair&quot;: string,
-      &quot;entryPrice&quot;: number,
-      &quot;leverage&quot;: number,
-      &quot;liquidationPrice&quot;: number,
-      &quot;marginType&quot;: &quot;ISOLATED&quot;,
-      &quot;marginAsset&quot;: string,
-      &quot;margin&quot;: number,
-      &quot;marginInMarginAsset&quot;: number, // Optional
-      &quot;positionAmount&quot;: number,
-      &quot;positionId&quot;: string,
-      &quot;positionSize&quot;: number,
-      &quot;positionStatus&quot;: PositionStatus,
-      &quot;positionType&quot;: PositionType,
-      &quot;realizedProfit&quot;: number,
-      &quot;realizedProfitInMarginAsset&quot;: number, // Optional
-      &quot;quantity&quot;: number,
-      &quot;createdAt&quot;: &quot;timestamp&quot;,
-      &quot;contractType&quot;: &quot;PERPETUAL&quot;,
-      &quot;iconUrl&quot;: string,
-      &quot;baseAsset&quot;: string,
-      &quot;quoteAsset&quot;: string
-    },
-    {
-      &quot;contractPair&quot;: &quot;FTMINR&quot;,
-      &quot;entryPrice&quot;: 90.82,
-      &quot;leverage&quot;: 10,
-      &quot;liquidationPrice&quot;: 82.92,
-      &quot;marginType&quot;: &quot;ISOLATED&quot;,
-      &quot;marginAsset&quot;: &quot;INR&quot;,
-      &quot;margin&quot;: 44.88,
-      &quot;marginInMarginAsset&quot;: 44.8,
-      &quot;positionAmount&quot;: 5,
-      &quot;positionId&quot;: &quot;f70d40fb-8250-4c61-9872-6a0d8e8f4454&quot;,
-      &quot;positionSize&quot;: 12,
-      &quot;positionStatus&quot;: &quot;OPEN&quot;,
-      &quot;positionType&quot;: &quot;LONG&quot;,
-      &quot;realizedProfit&quot;: -44.44,
-      &quot;realizedProfitInMarginAsset&quot;: -44.44,
-      &quot;quantity&quot;: 5,
-      &quot;createdAt&quot;: &quot;2024-03-28T07:54:43.343Z&quot;,
-      &quot;contractType&quot;: &quot;PERPETUAL&quot;,
-      &quot;iconUrl&quot;: &quot;https://storage.googleapis.com/pi42-dev-static/contract-icons/ftm.png&quot;,
-      &quot;baseAsset&quot;: &quot;FTM&quot;,
-      &quot;quoteAsset&quot;: &quot;INR&quot;
-    },
-  ],
+},
+],
 }
 Note: About nextTimestamp field in the response, it should be used as the query param for the next API call for pagination:
 Case 1: sortOrder is ascending,
@@ -2282,89 +2209,216 @@ In this case, shift the lower bound, i.e. nextTimestamp value should be entered 
 Case2: sortOrder is descending,
 In this case, shift the upper bound, i.e. nextTimestamp value should be entered in the endTimestamp query param for the next API call.
 Note: Either of the bounds (start or end) can be skipped, for example, input can also be only endTimestamp while startTimestamp not being mentioned.
-For examples of usage of startTimestamp, endTimestamp, sortOrder, Pagesize - please refer the “Examples” section of Order History.
-Get Position - GET /v1/positions
-Fetch order details based on client order id.
-Query Params:
-positionId: string
-For Example: GET /v1/positions?positionId=abc
-Response
-{
-  id: number;
-  contractPair: string;
-  contractType: string;
-  entryPrice: number;
-  leverage: number;
-  liquidationPrice: number;
-  marginType: &quot;ISOLATED&quot;;
-  margin: number;
-  marginInMarginAsset: number; // Optional
-  positionAmount: number;
-  positionId: string;
-  positionSize: number;
-  positionStatus: PositionStatus;
-  positionType: PositionType;
-  realizedProfit: number;
-  realizedProfitInMarginAsset: number; // Optional
-  quantity: number;
-  baseAsset: string;
-  quoteAsset: string;
-  marginAsset: string;
-  createdTime: Date;
-  updatedTime: Date;
-}</p>
+For examples of usage of startTimestamp, endTimestamp, sortOrder, Pagesize - please refer the “Examples” section of Order History.</li>
+</ul>
+<h2 id='trade-history-by-trade-id'>Trade History by Trade Id</h2>
+<p>Get user’s trade history for based on trade id.</p>
 
-<p>Exchange
-User Meta - GET /v1/exchange/userMeta
-Get user preferences for each contract.
-Response
-{
-  &quot;leveragePreferences&quot;: [
-    {
-      &quot;contractName&quot;: &quot;STXINR&quot;,
-      &quot;leverage&quot;: 10,
-      &quot;openPositionCount&quot;: 1
-    },
-    {
-      &quot;contractName&quot;: string,
-      &quot;leverage&quot;: number,
-      &quot;openPositionCount&quot;: number
-    },
-}
-Update Leverage - POST /v1/exchange/update/leverage
-Update the user’s preference for leverage for a contract pair for a user.
-Important: Leverage can only be changed for a contract pair if for that particular contract pair, there are no open positions or open orders.
-Body
-{
-  &quot;leverage&quot;: 15, // new leverage 
-  &quot;contractName&quot;: &quot;BTCINR&quot;, 
-}
-Response
-{
-  &quot;updatedLeverage&quot;: 15,
-  &quot;contractName&quot;: &quot;BTCINR&quot;
-}
-Save Chart Data - POST /v1/exchange/save/chart
-Save Trading View chart data.
-Body
-{
-  &quot;chartLayout&quot;: [
-    &quot;<trading_view_content>&quot;
-  ]
-}
-Get Chart Data - GET /v1/exchange/save/chart
-Get Trading View chart data.
-Response
-[
-  {
-    &quot;id&quot;: &quot;1707128017165710&quot;,
-    &quot;name&quot;: &quot;default_layout&quot;,
-    &quot;symbol&quot;: &quot;WIFINR&quot;,
-    &quot;content&quot;: &quot;<trading_view_content>&quot;,
-    &quot;resolution&quot;: &quot;15&quot;
-  }
-]</p>
+<p><code>GET /v1/user-data/trade-history/{id}</code></p>
 
+<p>Example: GET /v1/user-data/trade-history/10</p>
+<h3 id='response-20'>Response</h3><div class="highlight"><pre class="highlight javascript"><code><span class="p">{</span>
+  <span class="dl">"</span><span class="s2">id</span><span class="dl">"</span><span class="p">:</span> <span class="nx">number</span><span class="p">,</span>
+  <span class="dl">"</span><span class="s2">time</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">timestamp</span><span class="dl">"</span><span class="p">,</span>
+  <span class="dl">"</span><span class="s2">symbol</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">BTCINR</span><span class="dl">"</span><span class="p">,</span> <span class="c1">// Contract Pair BTCINR, ETHINR, etc.</span>
+  <span class="dl">"</span><span class="s2">type</span><span class="dl">"</span><span class="p">:</span> <span class="nx">UserOrderType</span><span class="p">,</span>
+  <span class="dl">"</span><span class="s2">side</span><span class="dl">"</span><span class="p">:</span> <span class="nx">OrderSide</span><span class="p">,</span>
+  <span class="dl">"</span><span class="s2">price</span><span class="dl">"</span><span class="p">:</span> <span class="nx">number</span><span class="p">,</span>
+  <span class="dl">"</span><span class="s2">quantity</span><span class="dl">"</span><span class="p">:</span> <span class="nx">number</span><span class="p">,</span>
+  <span class="dl">"</span><span class="s2">role</span><span class="dl">"</span><span class="p">:</span> <span class="nx">TradeRole</span><span class="p">,</span> <span class="c1">// TAKER, MAKER</span>
+  <span class="dl">"</span><span class="s2">fee</span><span class="dl">"</span><span class="p">:</span> <span class="nx">number</span><span class="p">,</span>
+  <span class="dl">"</span><span class="s2">feeInMarginAsset</span><span class="dl">"</span><span class="p">:</span> <span class="nx">number</span><span class="p">,</span> <span class="c1">// Optional</span>
+  <span class="dl">"</span><span class="s2">realizedProfit</span><span class="dl">"</span><span class="p">:</span> <span class="nx">number</span><span class="p">,</span>
+  <span class="dl">"</span><span class="s2">realizedProfitInMarginAsset</span><span class="dl">"</span><span class="p">:</span> <span class="nx">number</span><span class="p">,</span> <span class="c1">// Optional</span>
+  <span class="dl">"</span><span class="s2">contractType</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">PERPETUAL</span><span class="dl">"</span><span class="p">,</span>
+  <span class="dl">"</span><span class="s2">clientOrderId</span><span class="dl">"</span><span class="p">:</span> <span class="nx">string</span><span class="p">,</span>
+  <span class="dl">"</span><span class="s2">baseAsset</span><span class="dl">"</span><span class="p">:</span> <span class="nx">string</span><span class="p">,</span>
+  <span class="dl">"</span><span class="s2">quoteAsset</span><span class="dl">"</span><span class="p">:</span> <span class="nx">string</span><span class="p">,</span>
+  <span class="dl">"</span><span class="s2">marginAsset</span><span class="dl">"</span><span class="p">:</span> <span class="nx">string</span>
+<span class="p">}</span>
+
+<span class="err">##</span> <span class="nx">Position</span>
+
+<span class="nx">Positions</span> <span class="o">-</span> <span class="nx">GET</span> <span class="o">/</span><span class="nx">v1</span><span class="o">/</span><span class="nx">positions</span><span class="o">/</span><span class="p">{</span><span class="nx">positionStatus</span><span class="p">}</span>
+
+<span class="err">###</span> <span class="nx">Optional</span> <span class="nx">Query</span> <span class="nx">Params</span><span class="p">:</span>
+<span class="nx">startTimestamp</span><span class="p">:</span> <span class="nx">number</span> <span class="p">(</span><span class="nx">UNIX</span> <span class="nx">timestamp</span> <span class="k">in</span> <span class="nx">milliseconds</span><span class="p">)</span>
+<span class="nx">endTimestamp</span><span class="p">:</span> <span class="nx">number</span> <span class="p">(</span><span class="nx">UNIX</span> <span class="nx">timestamp</span> <span class="k">in</span> <span class="nx">milliseconds</span><span class="p">)</span>
+<span class="nx">sortOrder</span><span class="p">:</span> <span class="nx">string</span> <span class="p">(</span><span class="nx">asc</span> <span class="nx">or</span> <span class="nx">desc</span><span class="p">,</span> <span class="k">default</span><span class="p">:</span> <span class="nx">desc</span><span class="p">)</span>
+<span class="nx">pageSize</span><span class="p">:</span> <span class="nx">number</span> <span class="p">(</span><span class="k">default</span><span class="p">:</span> <span class="mi">100</span><span class="p">)</span>
+<span class="nx">List</span> <span class="nx">Positions</span> <span class="nx">based</span> <span class="nx">on</span> <span class="nx">position</span> <span class="nx">status</span>
+<span class="nx">positionStatus</span> <span class="nx">can</span> <span class="nx">be</span> <span class="nx">OPEN</span><span class="p">,</span> <span class="nx">CLOSED</span><span class="p">,</span> <span class="nx">LIQUIDATED</span>
+<span class="nx">For</span> <span class="nx">Example</span><span class="p">:</span> <span class="nx">GET</span> <span class="o">/</span><span class="nx">v1</span><span class="o">/</span><span class="nx">positions</span><span class="o">/</span><span class="nx">OPEN</span><span class="p">?</span><span class="nx">startTimestamp</span><span class="o">=</span><span class="mi">1720103457000</span><span class="o">&amp;</span><span class="nx">endTimestamp</span><span class="o">=</span><span class="mi">1720603457000</span><span class="o">&amp;</span><span class="nx">sortOrder</span><span class="o">=</span><span class="nx">desc</span><span class="o">&amp;</span><span class="nx">pageSize</span><span class="o">=</span><span class="mi">100</span>
+<span class="nx">Default</span> <span class="nx">Response</span><span class="p">:</span> <span class="p">(</span><span class="nx">Without</span> <span class="nx">query</span> <span class="nx">params</span><span class="p">)</span>
+<span class="p">[</span>
+  <span class="p">{</span>
+    <span class="dl">"</span><span class="s2">contractPair</span><span class="dl">"</span><span class="p">:</span> <span class="nx">string</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">entryPrice</span><span class="dl">"</span><span class="p">:</span> <span class="nx">number</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">leverage</span><span class="dl">"</span><span class="p">:</span> <span class="nx">number</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">liquidationPrice</span><span class="dl">"</span><span class="p">:</span> <span class="nx">number</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">marginType</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">ISOLATED</span><span class="dl">"</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">marginAsset</span><span class="dl">"</span><span class="p">:</span> <span class="nx">string</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">margin</span><span class="dl">"</span><span class="p">:</span> <span class="nx">number</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">marginInMarginAsset</span><span class="dl">"</span><span class="p">:</span> <span class="nx">number</span><span class="p">,</span> <span class="c1">// Optional</span>
+    <span class="dl">"</span><span class="s2">positionAmount</span><span class="dl">"</span><span class="p">:</span> <span class="nx">number</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">positionId</span><span class="dl">"</span><span class="p">:</span> <span class="nx">string</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">positionSize</span><span class="dl">"</span><span class="p">:</span> <span class="nx">number</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">positionStatus</span><span class="dl">"</span><span class="p">:</span> <span class="nx">PositionStatus</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">positionType</span><span class="dl">"</span><span class="p">:</span> <span class="nx">PositionType</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">realizedProfit</span><span class="dl">"</span><span class="p">:</span> <span class="nx">number</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">realizedProfitInMarginAsset</span><span class="dl">"</span><span class="p">:</span> <span class="nx">number</span><span class="p">,</span> <span class="c1">// Optional</span>
+    <span class="dl">"</span><span class="s2">quantity</span><span class="dl">"</span><span class="p">:</span> <span class="nx">number</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">createdAt</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">timestamp</span><span class="dl">"</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">contractType</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">PERPETUAL</span><span class="dl">"</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">iconUrl</span><span class="dl">"</span><span class="p">:</span> <span class="nx">string</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">baseAsset</span><span class="dl">"</span><span class="p">:</span> <span class="nx">string</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">quoteAsset</span><span class="dl">"</span><span class="p">:</span> <span class="nx">string</span>
+  <span class="p">}</span>
+<span class="p">]</span>
+<span class="nx">New</span> <span class="nx">Response</span><span class="p">:</span> <span class="p">(</span><span class="nx">With</span> <span class="nx">query</span> <span class="nx">params</span><span class="p">)</span>
+<span class="p">{</span>
+  <span class="dl">"</span><span class="s2">totalCount</span><span class="dl">"</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span>
+  <span class="dl">"</span><span class="s2">nextTimestamp</span><span class="dl">"</span><span class="p">:</span> <span class="mi">1703047483451</span><span class="p">,</span>
+  <span class="dl">"</span><span class="s2">data</span><span class="dl">"</span><span class="p">:</span> <span class="p">[</span>
+      <span class="p">{</span>
+      <span class="dl">"</span><span class="s2">contractPair</span><span class="dl">"</span><span class="p">:</span> <span class="nx">string</span><span class="p">,</span>
+      <span class="dl">"</span><span class="s2">entryPrice</span><span class="dl">"</span><span class="p">:</span> <span class="nx">number</span><span class="p">,</span>
+      <span class="dl">"</span><span class="s2">leverage</span><span class="dl">"</span><span class="p">:</span> <span class="nx">number</span><span class="p">,</span>
+      <span class="dl">"</span><span class="s2">liquidationPrice</span><span class="dl">"</span><span class="p">:</span> <span class="nx">number</span><span class="p">,</span>
+      <span class="dl">"</span><span class="s2">marginType</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">ISOLATED</span><span class="dl">"</span><span class="p">,</span>
+      <span class="dl">"</span><span class="s2">marginAsset</span><span class="dl">"</span><span class="p">:</span> <span class="nx">string</span><span class="p">,</span>
+      <span class="dl">"</span><span class="s2">margin</span><span class="dl">"</span><span class="p">:</span> <span class="nx">number</span><span class="p">,</span>
+      <span class="dl">"</span><span class="s2">marginInMarginAsset</span><span class="dl">"</span><span class="p">:</span> <span class="nx">number</span><span class="p">,</span> <span class="c1">// Optional</span>
+      <span class="dl">"</span><span class="s2">positionAmount</span><span class="dl">"</span><span class="p">:</span> <span class="nx">number</span><span class="p">,</span>
+      <span class="dl">"</span><span class="s2">positionId</span><span class="dl">"</span><span class="p">:</span> <span class="nx">string</span><span class="p">,</span>
+      <span class="dl">"</span><span class="s2">positionSize</span><span class="dl">"</span><span class="p">:</span> <span class="nx">number</span><span class="p">,</span>
+      <span class="dl">"</span><span class="s2">positionStatus</span><span class="dl">"</span><span class="p">:</span> <span class="nx">PositionStatus</span><span class="p">,</span>
+      <span class="dl">"</span><span class="s2">positionType</span><span class="dl">"</span><span class="p">:</span> <span class="nx">PositionType</span><span class="p">,</span>
+      <span class="dl">"</span><span class="s2">realizedProfit</span><span class="dl">"</span><span class="p">:</span> <span class="nx">number</span><span class="p">,</span>
+      <span class="dl">"</span><span class="s2">realizedProfitInMarginAsset</span><span class="dl">"</span><span class="p">:</span> <span class="nx">number</span><span class="p">,</span> <span class="c1">// Optional</span>
+      <span class="dl">"</span><span class="s2">quantity</span><span class="dl">"</span><span class="p">:</span> <span class="nx">number</span><span class="p">,</span>
+      <span class="dl">"</span><span class="s2">createdAt</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">timestamp</span><span class="dl">"</span><span class="p">,</span>
+      <span class="dl">"</span><span class="s2">contractType</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">PERPETUAL</span><span class="dl">"</span><span class="p">,</span>
+      <span class="dl">"</span><span class="s2">iconUrl</span><span class="dl">"</span><span class="p">:</span> <span class="nx">string</span><span class="p">,</span>
+      <span class="dl">"</span><span class="s2">baseAsset</span><span class="dl">"</span><span class="p">:</span> <span class="nx">string</span><span class="p">,</span>
+      <span class="dl">"</span><span class="s2">quoteAsset</span><span class="dl">"</span><span class="p">:</span> <span class="nx">string</span>
+    <span class="p">},</span>
+    <span class="p">{</span>
+      <span class="dl">"</span><span class="s2">contractPair</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">FTMINR</span><span class="dl">"</span><span class="p">,</span>
+      <span class="dl">"</span><span class="s2">entryPrice</span><span class="dl">"</span><span class="p">:</span> <span class="mf">90.82</span><span class="p">,</span>
+      <span class="dl">"</span><span class="s2">leverage</span><span class="dl">"</span><span class="p">:</span> <span class="mi">10</span><span class="p">,</span>
+      <span class="dl">"</span><span class="s2">liquidationPrice</span><span class="dl">"</span><span class="p">:</span> <span class="mf">82.92</span><span class="p">,</span>
+      <span class="dl">"</span><span class="s2">marginType</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">ISOLATED</span><span class="dl">"</span><span class="p">,</span>
+      <span class="dl">"</span><span class="s2">marginAsset</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">INR</span><span class="dl">"</span><span class="p">,</span>
+      <span class="dl">"</span><span class="s2">margin</span><span class="dl">"</span><span class="p">:</span> <span class="mf">44.88</span><span class="p">,</span>
+      <span class="dl">"</span><span class="s2">marginInMarginAsset</span><span class="dl">"</span><span class="p">:</span> <span class="mf">44.8</span><span class="p">,</span>
+      <span class="dl">"</span><span class="s2">positionAmount</span><span class="dl">"</span><span class="p">:</span> <span class="mi">5</span><span class="p">,</span>
+      <span class="dl">"</span><span class="s2">positionId</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">f70d40fb-8250-4c61-9872-6a0d8e8f4454</span><span class="dl">"</span><span class="p">,</span>
+      <span class="dl">"</span><span class="s2">positionSize</span><span class="dl">"</span><span class="p">:</span> <span class="mi">12</span><span class="p">,</span>
+      <span class="dl">"</span><span class="s2">positionStatus</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">OPEN</span><span class="dl">"</span><span class="p">,</span>
+      <span class="dl">"</span><span class="s2">positionType</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">LONG</span><span class="dl">"</span><span class="p">,</span>
+      <span class="dl">"</span><span class="s2">realizedProfit</span><span class="dl">"</span><span class="p">:</span> <span class="o">-</span><span class="mf">44.44</span><span class="p">,</span>
+      <span class="dl">"</span><span class="s2">realizedProfitInMarginAsset</span><span class="dl">"</span><span class="p">:</span> <span class="o">-</span><span class="mf">44.44</span><span class="p">,</span>
+      <span class="dl">"</span><span class="s2">quantity</span><span class="dl">"</span><span class="p">:</span> <span class="mi">5</span><span class="p">,</span>
+      <span class="dl">"</span><span class="s2">createdAt</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">2024-03-28T07:54:43.343Z</span><span class="dl">"</span><span class="p">,</span>
+      <span class="dl">"</span><span class="s2">contractType</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">PERPETUAL</span><span class="dl">"</span><span class="p">,</span>
+      <span class="dl">"</span><span class="s2">iconUrl</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">https://storage.googleapis.com/pi42-dev-static/contract-icons/ftm.png</span><span class="dl">"</span><span class="p">,</span>
+      <span class="dl">"</span><span class="s2">baseAsset</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">FTM</span><span class="dl">"</span><span class="p">,</span>
+      <span class="dl">"</span><span class="s2">quoteAsset</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">INR</span><span class="dl">"</span>
+    <span class="p">},</span>
+  <span class="p">],</span>
+<span class="p">}</span>
+<span class="nl">Note</span><span class="p">:</span> <span class="nx">About</span> <span class="nx">nextTimestamp</span> <span class="nx">field</span> <span class="k">in</span> <span class="nx">the</span> <span class="nx">response</span><span class="p">,</span> <span class="nx">it</span> <span class="nx">should</span> <span class="nx">be</span> <span class="nx">used</span> <span class="k">as</span> <span class="nx">the</span> <span class="nx">query</span> <span class="nx">param</span> <span class="k">for</span> <span class="nx">the</span> <span class="nx">next</span> <span class="nx">API</span> <span class="nx">call</span> <span class="k">for</span> <span class="nx">pagination</span><span class="p">:</span>
+<span class="nx">Case</span> <span class="mi">1</span><span class="p">:</span> <span class="nx">sortOrder</span> <span class="nx">is</span> <span class="nx">ascending</span><span class="p">,</span>
+<span class="nx">In</span> <span class="k">this</span> <span class="k">case</span><span class="p">,</span> <span class="nx">shift</span> <span class="nx">the</span> <span class="nx">lower</span> <span class="nx">bound</span><span class="p">,</span> <span class="nx">i</span><span class="p">.</span><span class="nx">e</span><span class="p">.</span> <span class="nx">nextTimestamp</span> <span class="nx">value</span> <span class="nx">should</span> <span class="nx">be</span> <span class="nx">entered</span> <span class="k">in</span> <span class="nx">the</span> <span class="nx">startTimestamp</span> <span class="nx">query</span> <span class="nx">param</span> <span class="k">for</span> <span class="nx">the</span> <span class="nx">next</span> <span class="nx">API</span> <span class="nx">call</span><span class="p">.</span>
+<span class="nx">Case2</span><span class="p">:</span> <span class="nx">sortOrder</span> <span class="nx">is</span> <span class="nx">descending</span><span class="p">,</span>
+<span class="nx">In</span> <span class="k">this</span> <span class="k">case</span><span class="p">,</span> <span class="nx">shift</span> <span class="nx">the</span> <span class="nx">upper</span> <span class="nx">bound</span><span class="p">,</span> <span class="nx">i</span><span class="p">.</span><span class="nx">e</span><span class="p">.</span> <span class="nx">nextTimestamp</span> <span class="nx">value</span> <span class="nx">should</span> <span class="nx">be</span> <span class="nx">entered</span> <span class="k">in</span> <span class="nx">the</span> <span class="nx">endTimestamp</span> <span class="nx">query</span> <span class="nx">param</span> <span class="k">for</span> <span class="nx">the</span> <span class="nx">next</span> <span class="nx">API</span> <span class="nx">call</span><span class="p">.</span>
+<span class="nx">Note</span><span class="p">:</span> <span class="nx">Either</span> <span class="k">of</span> <span class="nx">the</span> <span class="nx">bounds</span> <span class="p">(</span><span class="nx">start</span> <span class="nx">or</span> <span class="nx">end</span><span class="p">)</span> <span class="nx">can</span> <span class="nx">be</span> <span class="nx">skipped</span><span class="p">,</span> <span class="k">for</span> <span class="nx">example</span><span class="p">,</span> <span class="nx">input</span> <span class="nx">can</span> <span class="nx">also</span> <span class="nx">be</span> <span class="nx">only</span> <span class="nx">endTimestamp</span> <span class="k">while</span> <span class="nx">startTimestamp</span> <span class="nx">not</span> <span class="nx">being</span> <span class="nx">mentioned</span><span class="p">.</span>
+<span class="nx">For</span> <span class="nx">examples</span> <span class="k">of</span> <span class="nx">usage</span> <span class="k">of</span> <span class="nx">startTimestamp</span><span class="p">,</span> <span class="nx">endTimestamp</span><span class="p">,</span> <span class="nx">sortOrder</span><span class="p">,</span> <span class="nx">Pagesize</span> <span class="o">-</span> <span class="nx">please</span> <span class="nx">refer</span> <span class="nx">the</span> <span class="err">“</span><span class="nx">Examples</span><span class="err">”</span> <span class="nx">section</span> <span class="k">of</span> <span class="nx">Order</span> <span class="nx">History</span><span class="p">.</span>
+
+<span class="err">##</span> <span class="nx">Get</span> <span class="nx">Position</span> <span class="o">-</span> <span class="nx">GET</span> <span class="o">/</span><span class="nx">v1</span><span class="o">/</span><span class="nx">positions</span>
+<span class="nx">Fetch</span> <span class="nx">order</span> <span class="nx">details</span> <span class="nx">based</span> <span class="nx">on</span> <span class="nx">client</span> <span class="nx">order</span> <span class="nx">id</span><span class="p">.</span>
+<span class="nx">Query</span> <span class="nx">Params</span><span class="p">:</span>
+<span class="nx">positionId</span><span class="p">:</span> <span class="nx">string</span>
+<span class="nx">For</span> <span class="nx">Example</span><span class="p">:</span> <span class="nx">GET</span> <span class="o">/</span><span class="nx">v1</span><span class="o">/</span><span class="nx">positions</span><span class="p">?</span><span class="nx">positionId</span><span class="o">=</span><span class="nx">abc</span>
+<span class="nx">Response</span>
+<span class="p">{</span>
+  <span class="nl">id</span><span class="p">:</span> <span class="nx">number</span><span class="p">;</span>
+  <span class="nl">contractPair</span><span class="p">:</span> <span class="nx">string</span><span class="p">;</span>
+  <span class="nl">contractType</span><span class="p">:</span> <span class="nx">string</span><span class="p">;</span>
+  <span class="nl">entryPrice</span><span class="p">:</span> <span class="nx">number</span><span class="p">;</span>
+  <span class="nl">leverage</span><span class="p">:</span> <span class="nx">number</span><span class="p">;</span>
+  <span class="nl">liquidationPrice</span><span class="p">:</span> <span class="nx">number</span><span class="p">;</span>
+  <span class="nl">marginType</span><span class="p">:</span> <span class="dl">"</span><span class="s2">ISOLATED</span><span class="dl">"</span><span class="p">;</span>
+  <span class="nl">margin</span><span class="p">:</span> <span class="nx">number</span><span class="p">;</span>
+  <span class="nl">marginInMarginAsset</span><span class="p">:</span> <span class="nx">number</span><span class="p">;</span> <span class="c1">// Optional</span>
+  <span class="nl">positionAmount</span><span class="p">:</span> <span class="nx">number</span><span class="p">;</span>
+  <span class="nl">positionId</span><span class="p">:</span> <span class="nx">string</span><span class="p">;</span>
+  <span class="nl">positionSize</span><span class="p">:</span> <span class="nx">number</span><span class="p">;</span>
+  <span class="nl">positionStatus</span><span class="p">:</span> <span class="nx">PositionStatus</span><span class="p">;</span>
+  <span class="nl">positionType</span><span class="p">:</span> <span class="nx">PositionType</span><span class="p">;</span>
+  <span class="nl">realizedProfit</span><span class="p">:</span> <span class="nx">number</span><span class="p">;</span>
+  <span class="nl">realizedProfitInMarginAsset</span><span class="p">:</span> <span class="nx">number</span><span class="p">;</span> <span class="c1">// Optional</span>
+  <span class="nl">quantity</span><span class="p">:</span> <span class="nx">number</span><span class="p">;</span>
+  <span class="nl">baseAsset</span><span class="p">:</span> <span class="nx">string</span><span class="p">;</span>
+  <span class="nl">quoteAsset</span><span class="p">:</span> <span class="nx">string</span><span class="p">;</span>
+  <span class="nl">marginAsset</span><span class="p">:</span> <span class="nx">string</span><span class="p">;</span>
+  <span class="nl">createdTime</span><span class="p">:</span> <span class="nb">Date</span><span class="p">;</span>
+  <span class="nl">updatedTime</span><span class="p">:</span> <span class="nb">Date</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="nx">Exchange</span>
+<span class="nx">User</span> <span class="nx">Meta</span> <span class="o">-</span> <span class="nx">GET</span> <span class="o">/</span><span class="nx">v1</span><span class="o">/</span><span class="nx">exchange</span><span class="o">/</span><span class="nx">userMeta</span>
+<span class="nx">Get</span> <span class="nx">user</span> <span class="nx">preferences</span> <span class="k">for</span> <span class="nx">each</span> <span class="nx">contract</span><span class="p">.</span>
+<span class="nx">Response</span>
+<span class="p">{</span>
+  <span class="dl">"</span><span class="s2">leveragePreferences</span><span class="dl">"</span><span class="p">:</span> <span class="p">[</span>
+    <span class="p">{</span>
+      <span class="dl">"</span><span class="s2">contractName</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">STXINR</span><span class="dl">"</span><span class="p">,</span>
+      <span class="dl">"</span><span class="s2">leverage</span><span class="dl">"</span><span class="p">:</span> <span class="mi">10</span><span class="p">,</span>
+      <span class="dl">"</span><span class="s2">openPositionCount</span><span class="dl">"</span><span class="p">:</span> <span class="mi">1</span>
+    <span class="p">},</span>
+    <span class="p">{</span>
+      <span class="dl">"</span><span class="s2">contractName</span><span class="dl">"</span><span class="p">:</span> <span class="nx">string</span><span class="p">,</span>
+      <span class="dl">"</span><span class="s2">leverage</span><span class="dl">"</span><span class="p">:</span> <span class="nx">number</span><span class="p">,</span>
+      <span class="dl">"</span><span class="s2">openPositionCount</span><span class="dl">"</span><span class="p">:</span> <span class="nx">number</span>
+    <span class="p">},</span>
+<span class="p">}</span>
+
+<span class="err">##</span> <span class="nx">Update</span> <span class="nx">Leverage</span> <span class="o">-</span> <span class="nx">POST</span> <span class="o">/</span><span class="nx">v1</span><span class="o">/</span><span class="nx">exchange</span><span class="o">/</span><span class="nx">update</span><span class="o">/</span><span class="nx">leverage</span>
+<span class="nx">Update</span> <span class="nx">the</span> <span class="nx">user</span><span class="err">’</span><span class="nx">s</span> <span class="nx">preference</span> <span class="k">for</span> <span class="nx">leverage</span> <span class="k">for</span> <span class="nx">a</span> <span class="nx">contract</span> <span class="nx">pair</span> <span class="k">for</span> <span class="nx">a</span> <span class="nx">user</span><span class="p">.</span>
+<span class="nx">Important</span><span class="p">:</span> <span class="nx">Leverage</span> <span class="nx">can</span> <span class="nx">only</span> <span class="nx">be</span> <span class="nx">changed</span> <span class="k">for</span> <span class="nx">a</span> <span class="nx">contract</span> <span class="nx">pair</span> <span class="k">if</span> <span class="k">for</span> <span class="nx">that</span> <span class="nx">particular</span> <span class="nx">contract</span> <span class="nx">pair</span><span class="p">,</span> <span class="nx">there</span> <span class="nx">are</span> <span class="nx">no</span> <span class="nx">open</span> <span class="nx">positions</span> <span class="nx">or</span> <span class="nx">open</span> <span class="nx">orders</span><span class="p">.</span>
+<span class="nx">Body</span>
+<span class="p">{</span>
+  <span class="dl">"</span><span class="s2">leverage</span><span class="dl">"</span><span class="p">:</span> <span class="mi">15</span><span class="p">,</span> <span class="c1">// new leverage </span>
+  <span class="dl">"</span><span class="s2">contractName</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">BTCINR</span><span class="dl">"</span><span class="p">,</span> 
+<span class="p">}</span>
+<span class="nx">Response</span>
+<span class="p">{</span>
+  <span class="dl">"</span><span class="s2">updatedLeverage</span><span class="dl">"</span><span class="p">:</span> <span class="mi">15</span><span class="p">,</span>
+  <span class="dl">"</span><span class="s2">contractName</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">BTCINR</span><span class="dl">"</span>
+<span class="p">}</span>
+<span class="nx">Save</span> <span class="nx">Chart</span> <span class="nx">Data</span> <span class="o">-</span> <span class="nx">POST</span> <span class="o">/</span><span class="nx">v1</span><span class="o">/</span><span class="nx">exchange</span><span class="o">/</span><span class="nx">save</span><span class="o">/</span><span class="nx">chart</span>
+<span class="nx">Save</span> <span class="nx">Trading</span> <span class="nx">View</span> <span class="nx">chart</span> <span class="nx">data</span><span class="p">.</span>
+<span class="nx">Body</span>
+<span class="p">{</span>
+  <span class="dl">"</span><span class="s2">chartLayout</span><span class="dl">"</span><span class="p">:</span> <span class="p">[</span>
+    <span class="dl">"</span><span class="s2">&lt;trading_view_content&gt;</span><span class="dl">"</span>
+  <span class="p">]</span>
+<span class="p">}</span>
+<span class="nx">Get</span> <span class="nx">Chart</span> <span class="nx">Data</span> <span class="o">-</span> <span class="nx">GET</span> <span class="o">/</span><span class="nx">v1</span><span class="o">/</span><span class="nx">exchange</span><span class="o">/</span><span class="nx">save</span><span class="o">/</span><span class="nx">chart</span>
+<span class="nx">Get</span> <span class="nx">Trading</span> <span class="nx">View</span> <span class="nx">chart</span> <span class="nx">data</span><span class="p">.</span>
+<span class="nx">Response</span>
+<span class="p">[</span>
+  <span class="p">{</span>
+    <span class="dl">"</span><span class="s2">id</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">1707128017165710</span><span class="dl">"</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">name</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">default_layout</span><span class="dl">"</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">symbol</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">WIFINR</span><span class="dl">"</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">content</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">&lt;trading_view_content&gt;</span><span class="dl">"</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">resolution</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">15</span><span class="dl">"</span>
+  <span class="p">}</span>
+<span class="p">]</span>
+</code></pre></div>
 
 <h1 id='fawss-market-data-streams-web-socket-public'>FAWSS Market Data Streams Web Socket: Public</h1>
 
