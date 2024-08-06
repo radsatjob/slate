@@ -10,9 +10,10 @@ All API requests from partners will be authenticated using the tokens of this ma
 
 <p>These commands can be used for generating such private-public key pair.</p>
 
-<p><code>openssl genrsa 2048 -out private.pem</code></p>
-
-<p><code>openssl rsa -in private.pem -pubout -outform PEM -out public.pem</code></p></li>
+<p><code class="pre">
+ openssl genrsa 2048 -out private.pem <br/>
+ openssl rsa -in private.pem -pubout -outform PEM -out public.pem
+</code></p></li>
 <li><p>All requests should contain cookie which will be shared by Pi42.</p></li>
 <li><p>All requests should contain these common headers.</p></li>
 </ol>
