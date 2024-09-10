@@ -2212,7 +2212,7 @@ Note: Either of the bounds (start or end) can be skipped, for example, input can
 For examples of usage of startTimestamp, endTimestamp, sortOrder, Pagesize - please refer the “Examples” section of Order History.</li>
 </ul>
 <h2 id='trade-history-by-trade-id'>Trade History by Trade Id</h2>
-<p>Get user’s trade history for based on trade id.</p>
+<p>Get user&#39;s trade history for based on trade id.</p>
 
 <p><code>GET /v1/user-data/trade-history/{id}</code></p>
 
@@ -2385,40 +2385,55 @@ For examples of usage of startTimestamp, endTimestamp, sortOrder, Pagesize - ple
     <span class="p">},</span>
 <span class="p">}</span>
 
-<span class="err">##</span> <span class="nx">Update</span> <span class="nx">Leverage</span> <span class="o">-</span> <span class="nx">POST</span> <span class="o">/</span><span class="nx">v1</span><span class="o">/</span><span class="nx">exchange</span><span class="o">/</span><span class="nx">update</span><span class="o">/</span><span class="nx">leverage</span>
-<span class="nx">Update</span> <span class="nx">the</span> <span class="nx">user</span><span class="err">’</span><span class="nx">s</span> <span class="nx">preference</span> <span class="k">for</span> <span class="nx">leverage</span> <span class="k">for</span> <span class="nx">a</span> <span class="nx">contract</span> <span class="nx">pair</span> <span class="k">for</span> <span class="nx">a</span> <span class="nx">user</span><span class="p">.</span>
-<span class="nx">Important</span><span class="p">:</span> <span class="nx">Leverage</span> <span class="nx">can</span> <span class="nx">only</span> <span class="nx">be</span> <span class="nx">changed</span> <span class="k">for</span> <span class="nx">a</span> <span class="nx">contract</span> <span class="nx">pair</span> <span class="k">if</span> <span class="k">for</span> <span class="nx">that</span> <span class="nx">particular</span> <span class="nx">contract</span> <span class="nx">pair</span><span class="p">,</span> <span class="nx">there</span> <span class="nx">are</span> <span class="nx">no</span> <span class="nx">open</span> <span class="nx">positions</span> <span class="nx">or</span> <span class="nx">open</span> <span class="nx">orders</span><span class="p">.</span>
-<span class="nx">Body</span>
-<span class="p">{</span>
-  <span class="dl">"</span><span class="s2">leverage</span><span class="dl">"</span><span class="p">:</span> <span class="mi">15</span><span class="p">,</span> <span class="c1">// new leverage </span>
-  <span class="dl">"</span><span class="s2">contractName</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">BTCINR</span><span class="dl">"</span><span class="p">,</span> 
-<span class="p">}</span>
-<span class="nx">Response</span>
-<span class="p">{</span>
-  <span class="dl">"</span><span class="s2">updatedLeverage</span><span class="dl">"</span><span class="p">:</span> <span class="mi">15</span><span class="p">,</span>
-  <span class="dl">"</span><span class="s2">contractName</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">BTCINR</span><span class="dl">"</span>
-<span class="p">}</span>
-<span class="nx">Save</span> <span class="nx">Chart</span> <span class="nx">Data</span> <span class="o">-</span> <span class="nx">POST</span> <span class="o">/</span><span class="nx">v1</span><span class="o">/</span><span class="nx">exchange</span><span class="o">/</span><span class="nx">save</span><span class="o">/</span><span class="nx">chart</span>
-<span class="nx">Save</span> <span class="nx">Trading</span> <span class="nx">View</span> <span class="nx">chart</span> <span class="nx">data</span><span class="p">.</span>
-<span class="nx">Body</span>
-<span class="p">{</span>
-  <span class="dl">"</span><span class="s2">chartLayout</span><span class="dl">"</span><span class="p">:</span> <span class="p">[</span>
-    <span class="dl">"</span><span class="s2">&lt;trading_view_content&gt;</span><span class="dl">"</span>
-  <span class="p">]</span>
-<span class="p">}</span>
-<span class="nx">Get</span> <span class="nx">Chart</span> <span class="nx">Data</span> <span class="o">-</span> <span class="nx">GET</span> <span class="o">/</span><span class="nx">v1</span><span class="o">/</span><span class="nx">exchange</span><span class="o">/</span><span class="nx">save</span><span class="o">/</span><span class="nx">chart</span>
-<span class="nx">Get</span> <span class="nx">Trading</span> <span class="nx">View</span> <span class="nx">chart</span> <span class="nx">data</span><span class="p">.</span>
-<span class="nx">Response</span>
-<span class="p">[</span>
-  <span class="p">{</span>
-    <span class="dl">"</span><span class="s2">id</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">1707128017165710</span><span class="dl">"</span><span class="p">,</span>
-    <span class="dl">"</span><span class="s2">name</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">default_layout</span><span class="dl">"</span><span class="p">,</span>
-    <span class="dl">"</span><span class="s2">symbol</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">WIFINR</span><span class="dl">"</span><span class="p">,</span>
-    <span class="dl">"</span><span class="s2">content</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">&lt;trading_view_content&gt;</span><span class="dl">"</span><span class="p">,</span>
-    <span class="dl">"</span><span class="s2">resolution</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">15</span><span class="dl">"</span>
-  <span class="p">}</span>
-<span class="p">]</span>
-</code></pre></div>
+<span class="err">##</span> <span class="nx">Update</span> <span class="nx">Leverage</span>
+
+<span class="nx">POST</span> <span class="s2">`/v1/exchange/update/leverage`</span>
+
+<span class="nx">Update</span> <span class="nx">the</span> <span class="nx">user</span><span class="dl">'</span><span class="s1">s preference for leverage for a contract pair for a user. Leverage can only be changed for a contract pair if for that particular contract pair, there are no open positions or open orders.
+
+Body
+{
+  "leverage": 15, // new leverage 
+  "contractName": "BTCINR", 
+}
+
+Response
+{
+  "updatedLeverage": 15,
+  "contractName": "BTCINR"
+}
+
+
+## Save Chart Data 
+
+POST `/v1/exchange/save/chart`
+
+Save Trading View chart data.
+
+Body
+{
+  "chartLayout": [
+    "&lt;trading_view_content&gt;"
+  ]
+}
+
+Get Chart Data
+
+GET `/v1/exchange/save/chart`
+
+Get Trading View chart data.
+
+Response
+[
+  {
+    "id": "1707128017165710",
+    "name": "default_layout",
+    "symbol": "WIFINR",
+    "content": "&lt;trading_view_content&gt;",
+    "resolution": "15"
+  }
+]
+</span></code></pre></div>
 
 <h1 id='fawss-market-data-streams-web-socket-public'>FAWSS Market Data Streams Web Socket: Public</h1>
 
