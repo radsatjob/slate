@@ -163,12 +163,15 @@ Available interval values: `1m`, `3m`, `5m`, `15m`, `30m`, `1h`, `2h`, `4h`, `6h
 The above command returns JSON structured like this:
  
 ```json
-[
- {
-    to be filled
- }
-
-]
+  {
+    "startTime": 1706527190,
+    "open": 3568200,
+    "high": 3600000,
+    "low": 3450000,
+    "close": 3543212,
+    "endTime": 1706527090,
+    "volume": 10000
+  }
 ```
 
 <aside class="notice">
@@ -181,6 +184,45 @@ Fetch the depth update data for a contract pair.
 
 `GET /v1/market/depth/:contractPair`
 
+### Path Params:
+
+`contractPair`: string //contract Pair for which data is required (ex - btcinr, ethinr)
+
+### Response
+
+The data response structure will be same as the socket event data . The data can be null as well.
+
+```json
+{
+  "e": "depthUpdate", // Event type
+  "E": 1707636353921, // Event time
+  "T": 1707636353915, // Transaction time
+  "s": "BTCINR", // Symbol
+  "U": 3960811287130,  // Final update ID in event
+  "u": 3960811297623,  // First update ID in event
+  "pu": 3960811281312,  // Previous final update ID
+  "b": [ // Bids to be updated
+    [ 
+      "4240107.8", // Price Value
+      "0.710" // Quantity
+    ],
+    [ 
+      "4240116.5", 
+      "0.230" 
+    ]
+  ],
+  "a": [ // Asks to be updated
+    [ 
+      "4240353.6", // Price Value
+      "17.892" // Quantity
+    ],
+    [ 
+      "4240362.4",
+      "1.206"
+    ]
+  ]
+}
+```
 
 ## Agg Trade Update
 
@@ -188,11 +230,127 @@ Fetch the trade update data for a contract pair.
 
 `GET /v1/market/aggTrade/:contractPair`
 
+### Path parameters
+
+`contractPair`: string //contract Pair for which data is required (ex - btcinr, ethinr)
+
+
+### Response
+
+The data will contain the latest list of trade events sorted in ascending order of trade time. The maximum length of the list is 50. The data can be null or can contain less than 50 entries.
+
+
+```json
+{
+  "e": "aggTrade", // Event type
+  "E": 1707634200153, // Event time
+  "a": 166326960, // Aggregate trade ID
+  "s": "BTCINR", // Symbol
+  "p": "4264989.9", // Price
+  "q": "5.029", // Quantity
+  "f": 279997733, // First trade ID
+  "l": 279997733, // Last trade ID
+  "T": 1707634199985, // Trade time
+  "m": true // Is the buyer the market maker?
+}
+```
+
+> Here is a sample response 
+
+```json
+{
+  "data": [
+    {
+      "e": "aggTrade",
+      "E": 1717160452822,
+      "a": 2199101094,
+      "s": "BTCINR",
+      "p": "6058696.14",
+      "q": "0.029",
+      "f": 5054971528,
+      "l": 5054971528,
+      "T": 1717160452757,
+      "m": true
+    },
+    {
+      "e": "aggTrade",
+      "E": 1717160452856,
+      "a": 2199101095,
+      "s": "BTCINR",
+      "p": "6058696.14",
+      "q": "2.058",
+      "f": 5054971529,
+      "l": 5054971559,
+      "T": 1717160452820,
+      "m": false
+    },
+    {
+      "e": "aggTrade",
+      "E": 1717160452856,
+      "a": 2199101096,
+      "s": "BTCINR",
+      "p": "6058722.6",
+      "q": "0.025",
+      "f": 5054971560,
+      "l": 5054971560,
+      "T": 1717160452854,
+      "m": false
+    },
+    {
+      "e": "aggTrade",
+      "E": 1717160452856,
+      "a": 2199101097,
+      "s": "BTCINR",
+      "p": "6058722.6",
+      "q": "0.002",
+      "f": 5054971561,
+      "l": 5054971561,
+      "T": 1717160452854,
+      "m": false
+    },
+    {
+      "e": "aggTrade",
+      "E": 171716045
+
+```
+
+
 ## Ticker Update (24Hr)
 
 Fetch the 24 hr ticker update data for a contract pair.
 
 `GET /v1/market/ticker24Hr/:contractPair`
 
-Path Params: 
+### Path Parameters
+
+`contractPair`: string //contract Pair for which data is required (example - "btcinr", "ethinr")
+
+### Response
+
+The data response structure will be same as the socket event data . The data can be null as well.
+
+```json
+{
+  "data": {
+    "e": "24hrTicker",    // Event type
+    "E": 1707635719309,   // Event time
+    "s": "BTCINR",      // Symbol
+    "p": "87845.124",  // Price change
+    "P": "2.116",      // Price change percent
+    "w": "4188295.5225",  // Weighted average price
+    "c": "4239633.639",   // Last price
+    "Q": "0.003",      // Last quantity
+    "o": "4151788.515", // Open price
+    "h": "4267566",   // High price
+    "l": "4112704.2840000005",  // Low price
+    "v": "222797.117",    // Total traded base asset volume
+    "q": "10626810856.19",  // Total traded quote asset volume
+    "O": 1707549300000,   // Statistics open time
+    "C": 1707635719307,  // Statistics close time
+    "F": 4575372791,  // First trade ID
+    "L": 4578191477, // Last trade ID
+    "n": 2818668  // Total number of trades
+  }
+}
+```
 
