@@ -11,68 +11,107 @@ i. Removed: <code>marginAsset</code>, <code>maintMarginPercent</code> <br/>
 ii. Added: <code>market</code>, <code>marginAssetsSupported</code>, <code>fundingFeeInterval</code> <br/></li>
 </ul></li>
 <li>Open Orders, Order History, Linked Orders <br/>
-a. Added <code>baseAsset</code>, <code>quoteAsset</code> in response <br/>
-b. Added <code>lockedMarginInMarginAsset</code>, <code>lockedMargin</code>, <code>stopPrice</code>, <code>marginAsset</code>, <code>leveragedQty</code> in Order History response <br/></li>
+
+<ul>
+<li> Added <code>baseAsset</code>, <code>quoteAsset</code> in response <br/></li>
+<li>Added <code>lockedMarginInMarginAsset</code>, <code>lockedMargin</code>, <code>stopPrice</code>, <code>marginAsset</code>, <code>leveragedQty</code> in Order History response <br/></li>
+</ul></li>
 <li>Add Margin/ Reduce Margin <br/>
-a. Added <code>asset</code> in response <br/></li>
+
+<ul>
+<li>Added <code>asset</code> in response <br/></li>
+</ul></li>
 <li>Get order using client order ID, Get order using ref ID <br/>
-a. Added <code>lockedMarginInMarginAsset(optional)</code>, <code>baseAsset</code>, <code>quoteAsset</code>, <code>marginAsset</code> in response <br/></li>
+
+<ul>
+<li>Added <code>lockedMarginInMarginAsset(optional)</code>, <code>baseAsset</code>, <code>quoteAsset</code>, <code>marginAsset</code> in response <br/></li>
+</ul></li>
 <li>Place Order <br/>
-a. Added optional field <code>marginAsset</code> in body <br/>
-b. Added <code>lockedMarginInMarginAsset</code>, <code>baseAsset</code>, <code>quoteAsset</code>, <code>marginAsset</code> in response <br/></li>
+
+<ul>
+<li> Added optional field <code>marginAsset</code> in body <br/></li>
+<li>Added <code>lockedMarginInMarginAsset</code>, <code>baseAsset</code>, <code>quoteAsset</code>, <code>marginAsset</code> in response <br/></li>
+</ul></li>
 <li>Transaction History, Get Transaction using ID <br/>
-a. Added baseAsset, quoteAsset in response <br/></li>
+
+<ul>
+<li>Added baseAsset, quoteAsset in response <br/></li>
+</ul></li>
 <li>Trade History, Get Trade using ID <br/>
-a. Added <code>baseAsset</code>, <code>quoteAsset</code> , <code>marginAsset</code>, <code>feeInMarginAsset(optional)</code>, <code>realizedProfitInMarginAsset</code>(optional) in
+
+<ul>
+<li>Added <code>baseAsset</code>, <code>quoteAsset</code> , <code>marginAsset</code>, <code>feeInMarginAsset(optional)</code>, <code>realizedProfitInMarginAsset</code>(optional) in
 response</li>
+</ul></li>
 <li>Get Positions, Get Position using position id <br/>
-a. Added baseAsset, quoteAsset , marginAsset, marginInMarginAsset(optional), realizedProfitInMarginAsset(optional) in
+
+<ul>
+<li>Added baseAsset, quoteAsset , marginAsset, marginInMarginAsset(optional), realizedProfitInMarginAsset(optional) in
 response</li>
+</ul></li>
 <li>Web Socket Updates <br/>
-a. New Events Added:<br/>
-  i. Market Info ( marketInfo)<br/>
-  ii. Mark Price Stream for All market ( markPriceArr)<br/>
-  iii. All Market Tickers Streams( tickerArr)<br/>
-b. Added new fields in the Response of following events <br/>
-  i. Order Events : marginAsset, market , baseAsset, quoteAsset <br/>
-  ii. Position Events: market, marginAsset, marginConversionRate, marginSettlementRate, marginInMarginAsset,
-realizedProfitInMarginAsset <br/>
- iii. Trade Events: feeInMarginAsset <br/></li>
+
+<ul>
+<li>New Events Added:<br/>
+
+<ul>
+<li>Market Info ( marketInfo)<br/></li>
+<li>Mark Price Stream for All market ( markPriceArr)<br/></li>
+<li>All Market Tickers Streams( tickerArr)<br/>
+b. Added new fields in the Response of following events <br/></li>
+<li>Order Events : <code>marginAsset</code>, <code>market</code> , <code>baseAsset</code>, <code>quoteAsset</code><br/></li>
+<li>Position Events:<code>market</code>, <code>marginAsset</code>, <code>marginConversionRate</code>, <code>marginSettlementRate</code>, <code>marginInMarginAsset</code>,
+<code>realizedProfitInMarginAsset</code> <br/></li>
+<li>Trade Events: <code>feeInMarginAsset</code> <br/></li>
+</ul></li>
+</ul></li>
 </ol>
 <h2 id='9-07-2024'>9-07-2024</h2>
 <ol>
-<li>Pagination update of following APIs: orderHistory, tradeHistory, transactionHistory, openOrders, positions
-a. Removed <code>timestamp</code> query param.
-b. Added optional query params namely:
-   i. startTimestamp (lower bound),
-   ii. endTimestamp (upper bound),
-   iii. sortOrder(asc or desc),
-c. Response: nextTimestamp which is used in the next paginated API call.
-d. Examples added in the API descriptions section in the doc.</li>
+<li>Pagination update of following APIs: <code>orderHistory</code>, <code>tradeHistory</code>, <code>transactionHistory</code>, <code>openOrders</code>, <code>positions</code>
+
+<ul>
+<li>Removed <code>timestamp</code> query param.</li>
+<li>Added optional query params namely:
+i. <code>startTimestamp</code> (lower bound),
+ii. <code>endTimestamp</code> (upper bound),
+iii. <code>sortOrder</code>(asc or desc),</li>
+<li>Response: <code>nextTimestamp</code> which is used in the next paginated API call.</li>
+<li>Examples added in the API descriptions section in the doc.</li>
+</ul></li>
 <li>New Endpoint
-a. Margin History ( GET /v1/order/fetch-margin-history)</li>
+
+<ul>
+<li> Margin History ( GET /v1/order/fetch-margin-history)</li>
+</ul></li>
 </ol>
 <h2 id='19-06-2024'>19-06-2024</h2>
 <ol>
-<li>Updated Pagination of following APIs: orderHistory, tradeHistory, transactionHistory, openOrders
+<li>Updated Pagination of following APIs: <code>orderHistory</code>, <code>tradeHistory</code>, <code>transactionHistory</code>, <code>openOrders</code>
 a. Pagination changed from page basis to timestamp basis.
 b. Introduced timestamp basis pagination in positions API.
-c. Response gives a field nextTimestamp, which is used for next API call.</li>
+c. Response gives a field <code>nextTimestamp</code>, which is used for next API call.</li>
 </ol>
 <h2 id='06-06-2024'>06-06-2024</h2>
 <ol>
 <li>New Endpoints added
-a. Get Depth Update( GET /v1/market/depth/:contractPair)<br/>
-b. Get Aggregate trade update ( GET /v1/market/aggTrade/:contractPair)
-c. Get order details using ref id ( GET /v1/order/ref-id)
-d. Get user id and account id using ref id ( GET /v1/integration/user)
-e. Get fiat order details using reference id ( GET /v1/integration/fiat-order-details)
-f. Get 24hr ticker update ( GET /v1/market/ticker24Hr/:contractPair)
-g. Get trade history based on trade id ( GET /v1/user-data/trade-history/{id})
-h. Get transaction history based on transaction id ( GET /v1/user-data/transaction-history/{id})</li>
+
+<ul>
+<li> Get Depth Update( GET /v1/market/depth/:contractPair)<br/></li>
+<li> Get Aggregate trade update ( GET /v1/market/aggTrade/:contractPair)</li>
+<li> Get order details using ref ID ( GET /v1/order/ref-id)</li>
+<li> Get user id and account ID using ref ID ( GET /v1/integration/user)</li>
+<li> Get fiat order details using reference ID ( GET /v1/integration/fiat-order-details)</li>
+<li> Get 24hr ticker update ( GET /v1/market/ticker24Hr/:contractPair)</li>
+<li> Get trade history based on trade ID ( GET /v1/user-data/trade-history/{id})</li>
+<li> Get transaction history based on transaction ID ( GET /v1/user-data/transaction-history/{id})</li>
+</ul></li>
 <li>Updated Endpoints
-a. Two new optional query params( tradeId and positionId) added in ( GET /v1/user-data/transaction-history).
-b. Updates in Body of ( POST /v1/integration/event-replay)</li>
+
+<ul>
+<li> Two new optional query params( tradeId and positionId) added in ( GET /v1/user-data/transaction-history). <br/></li>
+<li>Updates in body of ( POST /v1/integration/event-replay)</li>
+</ul></li>
 <li>Added optional field refId in the responses of place order, get order details using client order id, order history, open orders, linked
 orders endpoints.</li>
 <li>Secure Web Socket Updates:
@@ -86,18 +125,17 @@ b. Get Position ( GET /v1/positions?positionId=abc)<br/>
 c. Event Replay ( POST /v1/integration/event-replay): This is just endpoint, we&#39;re still deploying the changes.<br/>
 <br/></li>
 <li>Secure Web Socket Updates:<br/>
-a. Added new event for Funding Fee named fundingFee</li>
+a. Added new event for Funding Fee named <strong>fundingFee</strong></li>
 </ol>
 <h2 id='20-05-2024'>20-05-2024</h2>
 <ol>
-<li>Added lockedMargin field in the place-order api response</li>
+<li>Added <code>lockedMargin</code> field in the place-order api response</li>
 </ol>
 <h2 id='10-05-2024'>10-05-2024</h2>
 <ol>
 <li>New Endpoint:
 INR Deposit and Withdraw History ( GET /v1/integration/deposit-withdraw-history)</li>
-<li>New enums:
-PaymentType, PaymentStatus</li>
+<li>New enums: <code>PaymentType</code>, <code>PaymentStatus</code></li>
 <li>Added optional query params for pagination for the following endpoints
 a. Order History
 b. Open Orders
@@ -106,10 +144,11 @@ d. Trade History</li>
 <li>Updated public key sharing under Authenticated endpoints.</li>
 <li>Secure Web Socket Updates:
 a. Added eventTime field in all the events.
-b. Updated response of order events. In case of orderPartiallyFilled event, use filledAmount instead of cumQty for total filled
+b. Updated response of order events.
+In case of orderPartiallyFilled event, use filledAmount instead of cumQty for total filled
 quantity.
 c. New Events:
 i. Margin Call ( marginCallAlert)
 ii. Liquidation ( liquidationAlert)
-iii. Trade stream( newTrade</li>
+iii. Trade stream (newTrade)</li>
 </ol>

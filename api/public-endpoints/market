@@ -1,4 +1,4 @@
-<h1 id='market'>Market</h1>
+<h1 id='markets-by-radhika'>Markets by Radhika</h1>
 <p>Fetch the candlestick data for a contract pair.</p>
 
 <p>Available interval values: <code>1m</code>, <code>3m</code>, <code>5m</code>, <code>15m</code>, <code>30m</code>, <code>1h</code>, <code>2h</code>, <code>4h</code>, <code>6h</code>, <code>8h</code>, <code>12h</code>, <code>1d</code>, <code>3d</code>, <code>1w</code>, <code>1M</code></p>
@@ -17,13 +17,7 @@
 <blockquote>
 <p>The above command returns JSON structured like this:</p>
 </blockquote>
-<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">[</span><span class="w">
- </span><span class="p">{</span><span class="w">
-    </span><span class="err">https://github.com/radsatjob/slate</span><span class="w">
- </span><span class="p">}</span><span class="w">
 
-</span><span class="p">]</span><span class="w">
-</span></code></pre></div>
 <aside class="notice">
  The data values will be in descending order of endTime  
 </aside>
